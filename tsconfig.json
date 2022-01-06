@@ -1,0 +1,64 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "alwaysStrict": true,
+    "baseUrl": ".",
+    "checkJs": false,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "importsNotUsedAsValues": "error",
+    "isolatedModules": true,
+    "jsx": "react-native",
+    "keyofStringsOnly": true,
+    "lib": [
+      "ESNext"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "paths": {
+      "assets/*": [
+        "./assets/*"
+      ],
+      "src/*": [
+        "./src/*"
+      ],
+      "app.json": [
+        "./app.json"
+      ],
+      "package.json": [
+        "./package.json"
+      ]
+    },
+    "pretty": false,
+    "resolveJsonModule": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "target": "ES5",
+    "typeRoots": [
+      "node_modules/@types/"
+    ],
+    "types": [
+      "react-native-css-module",
+      "react-native-svg-types"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "babel.config.js",
+    "jest.config.js",
+    "metro.config.js",
+    "postcss.config.js",
+    "react-native.config.js"
+  ]
+}

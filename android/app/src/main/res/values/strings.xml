@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">PrinterManagement</string>
+    <string name="CodePushDeploymentKey" moduleConfig="true">DeploymentKey</string>
+</resources>
