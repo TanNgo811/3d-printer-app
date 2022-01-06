@@ -59,5 +59,7 @@ buck-out/
 # CocoaPods
 /ios/Pods/
 
-# Env
+
 .env
+src/i18n/en.json
+src/i18n/vi.json
