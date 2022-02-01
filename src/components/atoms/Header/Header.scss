@@ -1,0 +1,27 @@
+
+
+.viewContainer {
+  height: 88px;
+}
+
+.header {
+  position: absolute;
+  bottom: 0;
+}
+
+
+.title {
+  font-size: 17px;
+  line-height: 28px;
+  //font-family: map-get($fonts, 'bold');
+  //color: map-get($colors, 'white');
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.button {
+  padding: 12px 8px;
+  border-radius: 5px;
+}

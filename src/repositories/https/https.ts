@@ -126,11 +126,11 @@ export class HttpService {
   }
 
   public handleSendGetHttp(
-    url: string,
-    successFunction: any,
-    errorFunction: any,
-    id: number,
-    maxId: number,
+    url?: string,
+    successFunction?: any,
+    errorFunction?: any,
+    id?: number,
+    maxId?: number,
   ) {
     if (
       this.httpCommandList.length > this.maxCommand &&

@@ -1,3 +1,3 @@
-import atomicStyles from './styles.scss';
+export {default as atomicStyles} from './styles.scss';
 
-export default atomicStyles;
+export {Colors} from './colors';

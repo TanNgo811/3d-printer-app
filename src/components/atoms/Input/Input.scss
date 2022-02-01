@@ -1,0 +1,85 @@
+/**
+ * Styles for Component.tsx
+ * @created 2021-07-29 17:31:57
+ * @author tientv <tientv20@fpt.com.vn>
+ */
+
+.inputView {
+  border-radius: 4px;
+  border: 1px solid #EDEDED;
+  z-index: -1;
+  justify-content: space-between;
+}
+
+.borderFocus {
+  border: 1px solid #5D5FEF;
+}
+
+.borderError {
+  border: 1px;
+}
+
+.iconL {
+  margin-left: 18px;
+  margin-right: 10px;
+}
+
+.iconR {
+  margin-right: 10px;
+}
+
+.inputHaveLicon {
+  padding-left: 0;
+}
+
+.inputHaveRicon {
+  padding-right: 0;
+}
+
+.valueHaveErrorMessage {
+  text-align: left;
+  padding-right: 16px;
+  font-size: 12px;
+}
+
+.title {
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.leftContainer {}
+
+.rightContainer {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.valueWithTitle {
+  max-width: 74%;
+}
+
+.rightContainerAndroid {
+  max-width: 74%;
+  flex: 1;
+  margin-left: 8px;
+}
+
+.valueNoTitle {
+  flex: 1;
+}
+
+
+.inputStyle {
+  font-size: 15px;
+  line-height: 24px;
+  height: 48px;
+}
+
+.inputAndroid {
+  flex: 1;
+}
+
+.inputAndroidRight {
+  text-align: right;
+}

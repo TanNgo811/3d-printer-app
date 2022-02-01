@@ -1,0 +1,33 @@
+/**
+ * Styles for Component.tsx
+ * @created 2022-02-02 00:51:10
+ * @author Ngo Tien Tan <ngotientan811@gmail.com>
+ */
+
+.tabBar {
+  justify-content: center;
+  align-items: center;
+}
+
+.tabBarItem {
+  flex: 1;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.tabBarButton {
+  flex-grow: 1;
+  justify-items: center;
+  justify-self: center;
+  align-content: space-around;
+  align-items: center;
+}
+
+.iosTabLabel {
+  margin-top: 8px;
+  margin-bottom: -8px;
+}
+
+.label {
+  font-size: 13px;
+}

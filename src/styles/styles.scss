@@ -1,4 +1,35 @@
 @import "../../node_modules/react-native-atomic-styles/src/partials/variables";
-@import "colors";
-@import "font-families";
-@import "../../node_modules/react-native-atomic-styles/src/styles.scss";
+@import "../../node_modules/react-native-atomic-styles/src/partials/functions";
+@import "../../node_modules/react-native-atomic-styles/src/partials/mixins";
+@import "variables";
+@import "../../node_modules/react-native-atomic-styles/src/styles";
+
+.androidBold {
+  font-weight: 100;
+}
+
+.h7 {
+  font-family: map-get($map: $font-families, $key: regular);
+  font-size: 10px;
+  line-height: 14px;
+}
+
+.rounded1 {
+  border-radius: 4px;
+}
+
+.rounded2 {
+  border-radius: 8px;
+}
+
+.rounded3 {
+  border-radius: 12px;
+}
+
+.rounded4 {
+  border-radius: 16px;
+}
+
+.textUnderline {
+  text-decoration: underline;
+}
