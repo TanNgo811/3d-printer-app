@@ -1,11 +1,14 @@
 import React, {FC, PropsWithChildren, ReactElement} from 'react';
 import nameof from 'ts-nameof.macro';
 import styles from './SettingScreen.scss';
-import {Text, View} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import type {StackScreenProps} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
 import DefaultLayout from 'src/components/templates/DefaultLayout/DefaultLayout';
-import {atomicStyles} from 'src/styles';
+import {SvgIcon} from 'react3l-native-kit';
+import SupportItem from 'src/components/morecules/SupportItem/SupportItem';
+import {Colors} from 'src/styles';
+import {EditInformationScreen, ChangeServerScreen} from 'src/screens/Root';
 
 /**
  * File: SettingScreen.tsx
@@ -16,9 +19,29 @@ import {atomicStyles} from 'src/styles';
 const SettingScreen: FC<PropsWithChildren<SettingScreenProps>> = (
   props: PropsWithChildren<SettingScreenProps>,
 ): ReactElement => {
-  const {} = props;
+  const {navigation} = props;
 
   const [translate] = useTranslation();
+
+  const handleGoToScreen = React.useCallback(
+    (screen: any) => {
+      navigation.navigate(screen);
+    },
+    [navigation],
+  );
+
+  const supportItems = [
+    {
+      title: translate('Thay đổi IP'),
+      onPress: () => handleGoToScreen(ChangeServerScreen.displayName),
+      left: <SvgIcon component={require('assets/icons/24/check.svg')} />,
+    },
+    {
+      title: translate('Thay đổi thông tin máy in'),
+      onPress: () => handleGoToScreen(EditInformationScreen.displayName),
+      left: <SvgIcon component={require('assets/icons/24/message-edit.svg')} />,
+    },
+  ];
 
   return (
     <>
@@ -26,9 +49,26 @@ const SettingScreen: FC<PropsWithChildren<SettingScreenProps>> = (
         customHeader={false}
         title={translate('Cài đặt')}
         isLeftIcon={false}
-        contentScrollable={true}>
+        contentScrollable={true}
+        backGround={Colors.Secondary}>
         <View style={styles.container}>
-          <Text style={[atomicStyles.text, atomicStyles.textDark]}>Abc</Text>
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            style={styles.scroll}>
+            {supportItems?.map((item, index) => (
+              <SupportItem
+                key={index}
+                onPress={item?.onPress!}
+                iconL={item?.left}
+                iconR={
+                  <SvgIcon
+                    component={require('assets/icons/24/chevron-right.svg')}
+                  />
+                }
+                title={item?.title}
+              />
+            ))}
+          </ScrollView>
         </View>
       </DefaultLayout>
     </>
