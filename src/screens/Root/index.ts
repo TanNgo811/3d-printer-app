@@ -1,3 +1,3 @@
-import EditInformationScreen from './EditInformationScreen/EditInformationScreen';
+export * from './ChangeServerScreen';
 
-export {EditInformationScreen};
+export * from './EditInformationScreen';
