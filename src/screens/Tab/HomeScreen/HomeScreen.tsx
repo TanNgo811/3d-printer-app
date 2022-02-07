@@ -6,6 +6,9 @@ import type {StackScreenProps} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
 import DefaultLayout from 'src/components/templates/DefaultLayout/DefaultLayout';
 import {atomicStyles} from 'src/styles';
+import {showError, showSuccess} from 'src/helpers/toasty';
+import type {Subscription} from 'rxjs';
+import {commandRepository} from 'src/repositories/command-repository';
 
 /**
  * File: HomeScreen.tsx
@@ -20,6 +23,29 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
 
   const [translate] = useTranslation();
 
+  // console.log(
+  //   decodeURI(
+  //     'http://192.168.31.63/command?commandText=G91%0AG1%20X100%20F1000%0AG90&PAGEID=0',
+  //   ),
+  // );
+
+  const handleTestFunction = React.useCallback(() => {
+    const subscription: Subscription = commandRepository
+      .sendCommandText('G91\nG1 X100 F1000\nG90')
+      .subscribe({
+        next: () => {
+          showSuccess('success');
+        },
+        error: () => {
+          showError('error');
+        },
+      });
+
+    return function cleanup() {
+      subscription.unsubscribe();
+    };
+  }, []);
+
   return (
     <>
       <DefaultLayout
@@ -30,7 +56,12 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
         <View style={styles.container}>
           <Text style={[atomicStyles.text, atomicStyles.textDark]}>Abc</Text>
 
-          <Button title={'Move 10cm'} onPress={() => {}} />
+          <Button
+            title={'Move 10cm'}
+            onPress={() => {
+              handleTestFunction();
+            }}
+          />
         </View>
       </DefaultLayout>
     </>
