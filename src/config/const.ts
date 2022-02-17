@@ -1,7 +1,7 @@
 import {Dimensions, KeyboardAvoidingViewProps, Platform} from 'react-native';
 import ReactNativeConfig from 'react-native-config';
 
-export const PRINTER_URL: string = 'http://192.168.31.63';
+export const PRINTER_URL: string = 'http://192.168.31.247';
 
 export const ANDROID: boolean = Platform.OS === 'android';
 

@@ -7405,6 +7405,11 @@ react-native-css-module@^1.0.0:
   resolved "https://registry.yarnpkg.com/react-native-css-module/-/react-native-css-module-1.0.0.tgz#642cad514bab3054c1eaddf4d07023c792feb83e"
   integrity sha512-IyY7isX+kTjDqrch7aYT49TwEv9Vf+GTCV8ulla36pT3AvwEqoMJfM/KiLfxV8xKfE+3d4+L5OxRoQWcO1jl2A==
 
+react-native-expandable-slider@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-native-expandable-slider/-/react-native-expandable-slider-1.0.4.tgz#4dcd5eb174044a42d0c3c7736bb2721f262f2927"
+  integrity sha512-fsx/DSPo9gXrewbjXXpLs2O5JOxUS2PuqJ3GKg99soTZ+kobeoGarSgy6qxDv5gQRPx3wyNupgziy0b8lAc6Lw==
+
 react-native-flipper@^0.125.0:
   version "0.125.0"
   resolved "https://registry.yarnpkg.com/react-native-flipper/-/react-native-flipper-0.125.0.tgz#684ded2b43cf62bb037a47e4098f590ceb22c699"
@@ -7420,6 +7425,11 @@ react-native-gesture-handler@^2.1.0:
     invariant "^2.2.4"
     lodash "^4.17.21"
     prop-types "^15.7.2"
+
+react-native-haptic-feedback@^1.13.0:
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/react-native-haptic-feedback/-/react-native-haptic-feedback-1.13.0.tgz#e4974fc465a38548be262748e73098dc9dd3a0fb"
+  integrity sha512-g8G5QURitDeC/zRlobDvUXLxKYfMlIM2HQNWJKbHPSu61qfs0djnK4s1NZuQzihkeAO0KJ4AS2XWvKBzUmlXtA==
 
 react-native-image-helper@^0.0.3:
   version "0.0.3"

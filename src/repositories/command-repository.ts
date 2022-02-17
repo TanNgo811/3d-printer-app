@@ -9,12 +9,12 @@ export class CommandRepository extends Repository {
     super(httpConfig);
   }
 
-  public readonly sendCommandText = (command?: string): Observable<boolean> => {
+  public readonly sendCommandText = (command?: string): Observable<any> => {
     const encodeCommand = encodeURI(command!);
     const params = `${PRINTER_URL}${COMMAND_ENDPOINT.COMMAND_TEXT}=${encodeCommand}&PAGEID=0`;
     return this.http
-      .get<boolean>(params, {})
-      .pipe(Repository.responseDataMapper<boolean>());
+      .get<any>(params, {})
+      .pipe(Repository.responseDataMapper<any>());
   };
 
   public readonly sendCommandPlain = (
