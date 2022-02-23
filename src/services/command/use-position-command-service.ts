@@ -2,7 +2,7 @@ import React from 'react';
 import type {PrinterPosition} from 'src/types/PrinterPosition';
 import type {Subscription} from 'rxjs';
 import {commandRepository} from 'src/repositories/command-repository';
-import {showError, showSuccess} from 'src/helpers/toasty';
+import {showError, showSuccess, showWarning} from 'src/helpers/toasty';
 import type {AppStateStatus} from 'react-native';
 import {AppState} from 'react-native';
 
@@ -18,6 +18,52 @@ export function usePositionCommandService(): [
     Y: 0,
     Z: 0,
   });
+
+  const handleGetCurrentPosition = React.useCallback(() => {
+    commandRepository.sendCommandText('M114').subscribe({
+      next: (result: string) => {
+        if (result.match('busy')) {
+          showWarning('busy command M114');
+        } else {
+          const positionArray = result.match(/([0-9]+(\.|)([0-9]+|))/g);
+
+          setPosition({
+            X: parseFloat(positionArray![0]),
+            Y: parseFloat(positionArray![1]),
+            Z: parseFloat(positionArray![2]),
+            Extruder: parseFloat(positionArray![3]),
+          });
+        }
+      },
+      error: () => {
+        showError('current position error');
+      },
+    });
+  }, []);
+
+  const handleUpdateCurrentPosition = React.useCallback(
+    (state: AppStateStatus) => {
+      //@ts-ignore
+      let timeout: NodeJS.Timeout;
+
+      switch (state) {
+        case 'active':
+          timeout = setInterval(() => {
+            handleGetCurrentPosition();
+          }, 3000);
+          break;
+
+        case 'inactive':
+          if (timeout) {
+            clearInterval(timeout);
+          }
+
+          AppState.removeEventListener('change', handleUpdateCurrentPosition);
+          break;
+      }
+    },
+    [handleGetCurrentPosition],
+  );
 
   const handlePositionCommand = React.useCallback((command: string) => {
     const subscription: Subscription = commandRepository
@@ -35,48 +81,6 @@ export function usePositionCommandService(): [
       subscription.unsubscribe();
     };
   }, []);
-
-  const handleGetCurrentPosition = React.useCallback(() => {
-    commandRepository.sendCommandText('M114').subscribe({
-      next: (result: string) => {
-        const positionArray = result.match(/([0-9]+(\.|)([0-9]+|))/g);
-
-        setPosition({
-          X: parseFloat(positionArray![0]),
-          Y: parseFloat(positionArray![1]),
-          Z: parseFloat(positionArray![2]),
-          Extruder: parseFloat(positionArray![3]),
-        });
-      },
-      error: () => {
-        showError('current position error');
-      },
-    });
-  }, []);
-
-  const handleUpdateCurrentPosition = React.useCallback(
-    (state: AppStateStatus) => {
-      //@ts-ignore
-      let timeout: NodeJS.Timeout;
-
-      switch (state) {
-        case 'active':
-          timeout = setInterval(() => {
-            handleGetCurrentPosition();
-          }, 30000);
-          break;
-
-        case 'inactive':
-          if (timeout) {
-            clearInterval(timeout);
-          }
-
-          AppState.removeEventListener('change', handleUpdateCurrentPosition);
-          break;
-      }
-    },
-    [handleGetCurrentPosition],
-  );
 
   const handleGetAbsolutePosition = React.useCallback(() => {
     handlePositionCommand('G90');

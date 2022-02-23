@@ -5,16 +5,24 @@
 }
 
 .header {
+  width: 100%;
   position: absolute;
   bottom: 0;
+  flex-direction: row;
+  align-content: center;
+  justify-content: flex-end;
 }
 
+.titleContainer {
+  align-content: center;
+  justify-content: center;
+  padding: 8px;
+  flex: 1;
+}
 
 .title {
   font-size: 17px;
-  line-height: 28px;
-  //font-family: map-get($fonts, 'bold');
-  //color: map-get($colors, 'white');
+  text-align: center;
 }
 
 .flex1 {

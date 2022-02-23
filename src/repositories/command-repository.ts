@@ -26,6 +26,16 @@ export class CommandRepository extends Repository {
       .get<boolean>(params, {})
       .pipe(Repository.responseDataMapper<boolean>());
   };
+
+  public readonly sendCommandSilence = (
+    command?: string,
+  ): Observable<boolean> => {
+    const encodeCommand = encodeURI(command!);
+    const params = `${PRINTER_URL}${COMMAND_ENDPOINT.COMMAND_SILENCE}=${encodeCommand}&PAGEID=0`;
+    return this.http
+      .get<boolean>(params, {})
+      .pipe(Repository.responseDataMapper<boolean>());
+  };
 }
 
 export const commandRepository: CommandRepository = new CommandRepository();

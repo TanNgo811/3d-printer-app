@@ -1,7 +1,7 @@
 import React, {FC, PropsWithChildren, ReactElement} from 'react';
 import nameof from 'ts-nameof.macro';
 import styles from './HomeScreen.scss';
-import {ScrollView, Text, View} from 'react-native';
+import {ScrollView, Text, TextInput, View} from 'react-native';
 import type {StackScreenProps} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
 import {atomicStyles} from 'src/styles';
@@ -16,6 +16,8 @@ import {SvgIcon} from 'react3l-native-kit';
 import TemperatureControl from 'src/screens/Tab/HomeScreen/components/TemperatureControl';
 import Header from '../../../components/atoms/Header/Header';
 import {Button} from 'src/components/atoms';
+import {useExtruderCommandService} from 'src/services/command/use-extruder-command-service';
+import {useFanCommandService} from 'src/services/command/use-fan-command-service';
 
 /**
  * File: HomeScreen.tsx
@@ -47,18 +49,34 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
   }, []);
 
   const [
+    printerPosition,
+    handleGetCurrentPosition,
+    handleUpdateCurrentPosition,
+  ] = usePositionCommandService();
+
+  const [
     handleMoveCustom,
     handleAutoHome,
     handleXHome,
     handleYHome,
     handleZHome,
-  ] = useMoveCommandService();
+  ] = useMoveCommandService(handleGetCurrentPosition);
 
   const [
-    printerPosition,
-    handleGetCurrentPosition,
-    handleUpdateCurrentPosition,
-  ] = usePositionCommandService();
+    currentTemp,
+    handleGetCurrentTemp,
+    handleUpdateTemperature,
+    handleSendTemperatureCommand,
+  ] = useExtruderCommandService();
+
+  const [fanSpeed, handleSendFanSpeedCommand] = useFanCommandService();
+
+  React.useEffect(() => {
+    // auto check position
+    // handleUpdateCurrentPosition('active');
+    //auto check temperature
+    // handleUpdateTemperature('active');
+  }, []);
 
   return (
     <>
@@ -245,15 +263,42 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
 
           <View style={[styles.dropdownContainer]}>
             <View style={styles.dropdown}>
-              <Text>Dropdown</Text>
+              <View style={[styles.inputContainer]}>
+                <TextInput
+                  onChangeText={() => {}}
+                  style={[styles.extruderInput, atomicStyles.text]}
+                  placeholder={translate('Chiều dài nhựa đùn ...')}
+                />
+                <Text style={[atomicStyles.textPrimary]}>
+                  {translate('mm')}
+                </Text>
+              </View>
+
+              <View style={[atomicStyles.mt8px, styles.inputContainer]}>
+                <TextInput
+                  onChangeText={() => {}}
+                  style={[styles.extruderInput, atomicStyles.text]}
+                  placeholder={translate('Tốc độ đùn ...')}
+                />
+                <Text style={[atomicStyles.textPrimary]}>
+                  {translate('mm/min')}
+                </Text>
+              </View>
             </View>
             <View style={[styles.extruderSelectionContainer]}>
-              <Button title={'Backward'} onPress={() => {}} isOutlined={true} />
+              <Button
+                title={'Backward'}
+                onPress={() => {}}
+                isOutlined={true}
+                buttonStyle={[styles.extruderButton]}
+                buttonContainerStyle={styles.extruderButtonContainer}
+              />
               <Button
                 title={'Forward'}
                 onPress={() => {}}
                 isOutlined={false}
                 buttonStyle={styles.forwardContainer}
+                buttonContainerStyle={styles.extruderButtonContainer}
               />
             </View>
           </View>
@@ -261,12 +306,24 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
 
         <TemperatureControl
           title={translate('Temperature')}
-          onChange={() => {}}
+          maxValue={280}
+          currentValue={currentTemp}
+          onConfirm={handleSendTemperatureCommand}
         />
 
-        <TemperatureControl title={translate('Bed')} onChange={() => {}} />
+        <TemperatureControl
+          title={translate('Bed')}
+          maxValue={120}
+          currentValue={0}
+          onChangeSlide={() => {}}
+        />
 
-        <TemperatureControl title={translate('Fan')} onChange={() => {}} />
+        <TemperatureControl
+          title={translate('Fan')}
+          maxValue={255}
+          currentValue={0}
+          onConfirm={handleSendFanSpeedCommand}
+        />
       </ScrollView>
     </>
   );

@@ -48,14 +48,7 @@ const Header: FC<PropsWithChildren<HeaderProps>> = (
           },
         ]}
         source={require('assets/images/bgNotification.png')}>
-        <View
-          style={[
-            atomicStyles.w100,
-            atomicStyles.flexRow,
-            atomicStyles.alignItemsCenter,
-            atomicStyles.justifyContentEnd,
-            styles.header,
-          ]}>
+        <View style={[styles.header]}>
           {isLeftIcon && leftIcon && (
             <TouchableOpacity
               onPress={
@@ -65,12 +58,7 @@ const Header: FC<PropsWithChildren<HeaderProps>> = (
               {leftIcon}
             </TouchableOpacity>
           )}
-          <View
-            style={[
-              styles.flex1,
-              atomicStyles.alignItemsCenter,
-              atomicStyles.pb2,
-            ]}>
+          <View style={[styles.titleContainer]}>
             <Text
               numberOfLines={1}
               style={[

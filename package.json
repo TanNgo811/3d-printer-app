@@ -27,6 +27,7 @@
     "react-native-calendar-picker": "^7.1.2",
     "react-native-code-push": "^7.0.4",
     "react-native-config": "^1.4.5",
+    "react-native-document-picker": "^8.0.0",
     "react-native-expandable-slider": "^1.0.4",
     "react-native-flipper": "^0.125.0",
     "react-native-gesture-handler": "^2.1.0",
@@ -54,7 +55,8 @@
     "redux-flipper": "^2.0.1",
     "reflect-metadata": "^0.1.13",
     "rn-redux-middleware-flipper": "^0.1.0",
-    "rxjs": "^7.4.0"
+    "rxjs": "^7.4.0",
+    "victory-native": "^36.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

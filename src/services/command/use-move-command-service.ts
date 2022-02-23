@@ -4,29 +4,35 @@ import {commandRepository} from 'src/repositories/command-repository';
 import {showError, showSuccess} from 'src/helpers/toasty';
 import type {PrinterPosition} from 'src/types/PrinterPosition';
 
-export function useMoveCommandService(): [
+export function useMoveCommandService(
+  onGetCurrentPosition: () => void,
+): [
   (position: PrinterPosition) => void,
   () => void,
   () => void,
   () => void,
   () => void,
 ] {
-  const handleControlMove = React.useCallback((command?: string) => {
-    const subscription: Subscription = commandRepository
-      .sendCommandText(command)
-      .subscribe({
-        next: () => {
-          showSuccess('success');
-        },
-        error: () => {
-          showError('error');
-        },
-      });
+  const handleControlMove = React.useCallback(
+    (command?: string) => {
+      const subscription: Subscription = commandRepository
+        .sendCommandText(command)
+        .subscribe({
+          next: () => {
+            showSuccess('success');
+            onGetCurrentPosition();
+          },
+          error: () => {
+            showError('error');
+          },
+        });
 
-    return function cleanup() {
-      subscription.unsubscribe();
-    };
-  }, []);
+      return function cleanup() {
+        subscription.unsubscribe();
+      };
+    },
+    [onGetCurrentPosition],
+  );
 
   const handleMoveCustom = React.useCallback(
     (position: PrinterPosition) => {
