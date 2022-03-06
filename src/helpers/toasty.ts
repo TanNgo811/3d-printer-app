@@ -3,7 +3,7 @@ import {RNToasty} from 'react-native-toasty';
 
 const defaultOptions: Partial<Options> = {
   duration: 1,
-  position: 'bottom',
+  position: 'center',
 };
 
 export function showError(title: string, options?: Partial<Options>) {

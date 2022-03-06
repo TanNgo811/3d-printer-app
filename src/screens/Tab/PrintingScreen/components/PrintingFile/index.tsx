@@ -36,7 +36,9 @@ export function PrintingFile(
   return (
     <>
       <Swipeable renderRightActions={rightSwipe}>
-        <View style={[styles.fileContainer, atomicStyles.bgWhite]}>
+        <TouchableOpacity
+          onPress={onPrint}
+          style={[styles.fileContainer, atomicStyles.bgWhite]}>
           <Text
             style={[
               atomicStyles.textDark,
@@ -46,10 +48,10 @@ export function PrintingFile(
             {title}
           </Text>
 
-          <TouchableOpacity onPress={onPrint}>
+          <View>
             <SvgIcon component={require('assets/icons/24/blue-3d-cube.svg')} />
-          </TouchableOpacity>
-        </View>
+          </View>
+        </TouchableOpacity>
       </Swipeable>
     </>
   );

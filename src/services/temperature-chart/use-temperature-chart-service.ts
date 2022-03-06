@@ -11,9 +11,11 @@ export interface TemperatureValue {
 }
 
 export function useTemperatureChartService(
-  timeRefresh?: number,
-): [TemperatureValue[], (state: AppStateStatus) => void] {
+  refreshTime?: number,
+): [TemperatureValue[], (state: AppStateStatus) => void, TemperatureValue] {
   const [tempArray, setTempArray] = React.useState<TemperatureValue[]>([]);
+
+  const [latestTemp, setLatestTemp] = React.useState<TemperatureValue>();
 
   const [translate] = useTranslation();
 
@@ -24,6 +26,8 @@ export function useTemperatureChartService(
           .replace('ok T:', '')
           .replace(' @:0', '')
           .split(' /');
+
+        setLatestTemp({temp: parseFloat(modifyResult[0]), time: Date.now()});
 
         setTempArray([
           ...tempArray,
@@ -63,8 +67,8 @@ export function useTemperatureChartService(
   React.useEffect(() => {
     setTimeout(() => {
       handleGetCurrentTemp();
-    }, 3000);
-  }, [handleGetCurrentTemp]);
+    }, refreshTime ?? 3000);
+  }, [handleGetCurrentTemp, refreshTime]);
 
-  return [tempArray, handleUpdateCurrentTemp];
+  return [tempArray, handleUpdateCurrentTemp, latestTemp!];
 }

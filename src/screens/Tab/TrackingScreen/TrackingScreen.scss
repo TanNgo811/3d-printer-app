@@ -1,0 +1,65 @@
+/**
+ * Styles for Component.tsx
+ * @created 2022-01-06 00:24:14
+ * @author Ngo Tien Tan <ngotientan811@gmail.com>
+ */
+
+@import 'src/styles/colors';
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.chartContainer {
+  padding: 0;
+}
+
+.dataStyle {
+  background-color: #5D5FEF;
+}
+
+.titleContainer {
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  padding-top: 16px;
+  margin-bottom: -30px;
+}
+
+.terminalContainer {
+  margin-top: -15px;
+}
+
+.terminalWindow {
+  margin: 8px 10px 0 10px;
+  border: 1px solid map-get($colors, 'primary');
+  padding: 12px;
+  border-radius: 5px;
+  height: 100%;
+}
+
+.inputTerminalContainer {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  width: 100%;
+}
+
+.buttonContainer {
+  width: 15%;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.inputTerminal {
+  flex: 1;
+  border: 1px solid map-get($colors, 'primary');
+  padding: 0 0 0 8px;
+  margin-right: 16px;
+  height: 40px;
+  border-radius: 5px;
+}

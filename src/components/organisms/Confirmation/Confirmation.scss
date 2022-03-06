@@ -1,0 +1,28 @@
+/**
+ * Confirmation
+ * 2022-03-06 10:59:33
+ */
+.modal {
+  background-color: white;
+  border-radius: 5px;
+  padding: 24px 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.textModal {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.confirmButtonContainer {
+  flex-direction: row;
+  margin-top: 24px;
+  align-items: center;
+  width: 70%;
+  justify-content: space-between;
+}
+
+.button {
+  flex: 1;
+}

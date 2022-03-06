@@ -7,22 +7,26 @@ import {
   ActivityIndicator,
   FlatList,
   ListRenderItemInfo,
+  StatusBar,
   Text,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import {useTranslation} from 'react-i18next';
 import DefaultLayout from 'src/components/templates/DefaultLayout/DefaultLayout';
 import {atomicStyles, Colors} from 'src/styles';
 import {SvgIcon} from 'react3l-native-kit';
-import DocumentPicker, {
-  DocumentPickerResponse,
-} from 'react-native-document-picker';
 import {useListSdFileService} from 'src/services/print-service/use-list-sd-file-service';
 import PrintingFile from 'src/screens/Tab/PrintingScreen/components/PrintingFile';
-import {uploadRepository} from 'src/repositories/upload-repository';
-import {showError} from 'src/helpers/toasty';
+import {showInfo} from 'src/helpers/toasty';
 import {useBoolean} from 'react3l-common';
-import {finalize} from 'rxjs';
+import {ANDROID} from 'src/config/const';
+import {PrintProgressScreen} from 'src/screens/Root';
+import Confirmation from 'src/components/organisms/Confirmation';
+import {useProgressServices} from 'src/services/print-service/use-progress-services';
+import * as Progress from 'react-native-progress';
+import UploadLoadingComponent from 'src/components/organisms/UploadLoadingComponent';
+import KeepAwake from 'react-native-keep-awake';
 
 export function PrintingScreen(
   props: PropsWithChildren<PrintingScreenProps>,
@@ -31,13 +35,12 @@ export function PrintingScreen(
 
   const [translate] = useTranslation();
 
-  const [progress, setProgress] = React.useState<number>(0);
+  React.useEffect(() => {
+    KeepAwake.activate();
 
-  const [uploadLoading, , handleOnUploadLoading, handleOffUploadLoading] =
-    useBoolean(false);
-
-  const handleUploadProgress = React.useCallback((progressEvent: any) => {
-    setProgress((progressEvent.loaded / progressEvent.total) * 100);
+    return () => {
+      KeepAwake.deactivate();
+    };
   }, []);
 
   const [
@@ -46,49 +49,72 @@ export function PrintingScreen(
     getListLoading,
     handleDeleteFileFromSd,
     handlePrintFileFromSd,
-  ] = useListSdFileService();
+    handleGetFileInStorage,
+    ,
+    uploadLoading,
+    currentFile,
+    handleSelectFile,
+  ] = useListSdFileService(navigation);
 
-  const handleGetFileInStorage = React.useCallback(() => {
-    DocumentPicker.pickSingle({
-      allowMultiSelection: false,
-    })
-      .then((result: DocumentPickerResponse) => {
-        console.log(result);
-        handleOnUploadLoading();
-        uploadRepository
-          .uploadFile(result, event => {
-            setProgress(Math.round((100 * event.loaded) / event.total));
-          })
-          .pipe(finalize(() => handleOffUploadLoading()))
-          .subscribe({
-            next: end => {
-              console.log('uploadFile', end);
-              setProgress(0);
-              handleGetListSdFile();
-            },
-            error: () => {
-              showError('error');
-            },
-          });
-      })
-      .catch(() => {});
-  }, [handleGetListSdFile, handleOffUploadLoading, handleOnUploadLoading]);
+  const [printProgress, handleGetProgress, , , , , , , isAvailable] =
+    useProgressServices(navigation, false);
+
+  const [confirmModal, , handleOnConfirmModal, handleOffConfirmModal] =
+    useBoolean(false);
+
+  const handleGoToPrintProgressScreen = React.useCallback(() => {
+    if (currentFile) {
+      navigation.navigate(PrintProgressScreen.displayName!, {
+        fileName: currentFile,
+      });
+    } else {
+      showInfo(translate('Select a file to print'));
+    }
+  }, [currentFile, navigation, translate]);
+
+  const handleConfirmPrint = React.useCallback(
+    (file: string) => {
+      handleOnConfirmModal();
+
+      handleSelectFile(file);
+    },
+    [handleOnConfirmModal, handleSelectFile],
+  );
+
+  const handleCancelPrintConfirm = React.useCallback(() => {
+    handleOffConfirmModal();
+
+    handleSelectFile('');
+  }, [handleOffConfirmModal, handleSelectFile]);
 
   React.useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
       handleGetListSdFile();
+
+      handleGetProgress();
     });
 
     return function cleanup() {
       unsubscribe();
     };
-  }, [handleGetListSdFile, navigation]);
+  }, [handleGetListSdFile, handleGetProgress, navigation]);
+
+  const handleRefresh = React.useCallback(() => {
+    handleGetProgress();
+
+    handleGetListSdFile();
+  }, [handleGetListSdFile, handleGetProgress]);
 
   return (
     <>
+      <StatusBar
+        translucent={true}
+        animated={true}
+        barStyle={'light-content'}
+      />
       <DefaultLayout
         customHeader={false}
-        title={translate('Printing')}
+        title={translate('SD Files')}
         isLeftIcon={true}
         left={<View style={styles.placeholder} />}
         contentScrollable={true}
@@ -99,15 +125,42 @@ export function PrintingScreen(
         backGround={Colors.Secondary}>
         <View style={styles.container}>
           <View style={styles.headerTitle}>
-            <Text style={[atomicStyles.textDark]}>
-              {translate('From SD Card')}
-            </Text>
+            <View
+              style={[
+                atomicStyles.flexRow,
+                atomicStyles.justifyContentBetween,
+              ]}>
+              {listFile?.length && (
+                <Text style={[atomicStyles.textDark]}>
+                  <Text
+                    style={[
+                      atomicStyles.textPrimary,
+                      atomicStyles.bold,
+                      ANDROID && atomicStyles.androidBold,
+                    ]}>
+                    {listFile?.length} Files
+                  </Text>
+                  {translate(' Found')}
+                </Text>
+              )}
 
-            <Text style={[atomicStyles.textDark]}>{progress}</Text>
-
-            {uploadLoading && (
-              <ActivityIndicator color={Colors.Primary} size={'small'} />
-            )}
+              {uploadLoading && (
+                <View
+                  style={[atomicStyles.flexRow, atomicStyles.alignItemsCenter]}>
+                  <Text
+                    style={[
+                      atomicStyles.textDark,
+                      atomicStyles.textPrimary,
+                      atomicStyles.bold,
+                      ANDROID && atomicStyles.androidBold,
+                      atomicStyles.mr2,
+                    ]}>
+                    {translate('Uploading file')}
+                  </Text>
+                  <ActivityIndicator color={Colors.Primary} size={'small'} />
+                </View>
+              )}
+            </View>
           </View>
 
           <FlatList
@@ -117,7 +170,9 @@ export function PrintingScreen(
                   key={index}
                   title={item}
                   onDelete={() => handleDeleteFileFromSd(item!)}
-                  onPrint={() => handlePrintFileFromSd(item)}
+                  onPrint={() => {
+                    handleConfirmPrint(item!);
+                  }}
                 />
               );
             }}
@@ -125,10 +180,52 @@ export function PrintingScreen(
             style={styles.flatList}
             keyExtractor={(_item, index) => index.toString()}
             refreshing={getListLoading}
-            onRefresh={handleGetListSdFile}
+            onRefresh={handleRefresh}
           />
         </View>
+
+        <TouchableOpacity
+          onPress={handleGoToPrintProgressScreen}
+          style={[styles.smallProgress, atomicStyles.shadow]}>
+          {isAvailable ? (
+            <Text
+              style={[
+                atomicStyles.textSecondary,
+                atomicStyles.bold,
+                ANDROID && atomicStyles.androidBold,
+                styles.availableText,
+              ]}>
+              {translate('Available')}
+            </Text>
+          ) : (
+            <Progress.Circle
+              progress={printProgress}
+              size={55}
+              animated={true}
+              showsText={true}
+              textStyle={styles.textProgress}
+              thickness={5}
+              borderColor={'#ffffff'}
+            />
+          )}
+        </TouchableOpacity>
       </DefaultLayout>
+
+      <Confirmation
+        isVisible={confirmModal}
+        onBackdropPress={handleCancelPrintConfirm}
+        title={translate('Confirm Printing')}
+        subtitle={translate(`Do you want to print file ${currentFile}?`)}
+        labelSecondary={translate('Cancel')}
+        onPressSecondary={handleCancelPrintConfirm}
+        labelPrimary={translate('Yes')}
+        onPressPrimary={() => {
+          handlePrintFileFromSd();
+          handleOffConfirmModal();
+        }}
+      />
+
+      <UploadLoadingComponent isVisible={uploadLoading} />
     </>
   );
 }

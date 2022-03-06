@@ -1,6 +1,6 @@
 import HomeScreen from './HomeScreen/HomeScreen';
 import {PrintingScreen} from './PrintingScreen';
-import ProcessingScreen from './ProcessingScreen/ProcessingScreen';
+import TrackingScreen from './TrackingScreen/TrackingScreen';
 import SettingScreen from './SettingScreen/SettingScreen';
 
-export {HomeScreen, ProcessingScreen, SettingScreen, PrintingScreen};
+export {HomeScreen, TrackingScreen, SettingScreen, PrintingScreen};

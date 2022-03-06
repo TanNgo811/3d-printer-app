@@ -1,9 +1,9 @@
 import {Repository} from 'react3l-common';
 import {httpConfig} from 'src/config/repository';
-import type {Observable} from 'rxjs';
 import {PRINTER_URL} from 'src/config/const';
 import {COMMAND_ENDPOINT} from 'src/config/endpoint';
 import type {DocumentPickerResponse} from 'react-native-document-picker';
+import type {Observable} from 'rxjs';
 
 export class UploadRepository extends Repository {
   constructor() {
@@ -26,8 +26,10 @@ export class UploadRepository extends Repository {
 
     formData.append('myfile[]', file);
 
+    const config = {onUploadProgress: onUploadProgress};
+
     return this.http
-      .post<any>(params, formData, {onUploadProgress: onUploadProgress})
+      .post<any>(params, formData, config)
       .pipe(Repository.responseDataMapper<any>());
   };
 }

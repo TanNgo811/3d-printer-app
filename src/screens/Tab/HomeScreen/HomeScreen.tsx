@@ -1,7 +1,7 @@
 import React, {FC, PropsWithChildren, ReactElement} from 'react';
 import nameof from 'ts-nameof.macro';
 import styles from './HomeScreen.scss';
-import {ScrollView, Text, TextInput, View} from 'react-native';
+import {ScrollView, StatusBar, Text, TextInput, View} from 'react-native';
 import type {StackScreenProps} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
 import {atomicStyles} from 'src/styles';
@@ -14,10 +14,10 @@ import HomeIcon from 'assets/tsx/24/HomeIcon';
 import {ANDROID} from 'src/config/const';
 import {SvgIcon} from 'react3l-native-kit';
 import TemperatureControl from 'src/screens/Tab/HomeScreen/components/TemperatureControl';
-import Header from '../../../components/atoms/Header/Header';
 import {Button} from 'src/components/atoms';
 import {useExtruderCommandService} from 'src/services/command/use-extruder-command-service';
 import {useFanCommandService} from 'src/services/command/use-fan-command-service';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 /**
  * File: HomeScreen.tsx
@@ -43,6 +43,8 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
   const [selectedLength, setSelectedLength] = React.useState<any>(
     lengthController[0],
   );
+
+  const {top} = useSafeAreaInsets();
 
   const handleChangeLength = React.useCallback((item: any) => {
     setSelectedLength(item);
@@ -80,7 +82,8 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
 
   return (
     <>
-      <Header title={translate('Điều khiển')} isLeftIcon={false} />
+      <StatusBar translucent={true} animated={true} barStyle={'dark-content'} />
+      <View style={[{height: top}]} />
       <ScrollView
         showsVerticalScrollIndicator={false}
         scrollEnabled={true}

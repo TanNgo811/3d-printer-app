@@ -13,7 +13,7 @@ import React, {FC, PropsWithChildren, ReactElement} from 'react';
 import {
   PrintingScreen,
   HomeScreen,
-  ProcessingScreen,
+  TrackingScreen,
   SettingScreen,
 } from 'src/screens/Tab';
 
@@ -41,9 +41,11 @@ const TabNavigator: FC<PropsWithChildren<TabNavigatorProps>> = (
           tabBarStyle: styles.tabBar,
           tabBarItemStyle: styles.tabBarItem,
           tabBarLabelPosition: 'below-icon',
+          tabBarHideOnKeyboard: true,
+          unmountOnBlur: true,
         }}
         initialRouteName={TabNavigator.displayName}>
-        {[HomeScreen, ProcessingScreen, PrintingScreen, SettingScreen].map(
+        {[HomeScreen, TrackingScreen, PrintingScreen, SettingScreen].map(
           ScreenComponent => (
             <Screen
               key={ScreenComponent.displayName}
@@ -72,7 +74,7 @@ const TabNavigator: FC<PropsWithChildren<TabNavigatorProps>> = (
                         <Home color={Colors.Neutral} />
                       );
 
-                    case ProcessingScreen.displayName:
+                    case TrackingScreen.displayName:
                       return focused ? (
                         <Send color={Colors.Primary} />
                       ) : (
@@ -98,19 +100,19 @@ const TabNavigator: FC<PropsWithChildren<TabNavigatorProps>> = (
                   let tabLabel;
                   switch (ScreenComponent.displayName) {
                     case HomeScreen.displayName:
-                      tabLabel = translate('Trang chủ');
+                      tabLabel = translate('Control');
                       break;
 
-                    case ProcessingScreen.displayName:
-                      tabLabel = translate('Theo dõi');
+                    case TrackingScreen.displayName:
+                      tabLabel = translate('Tracking');
                       break;
 
                     case PrintingScreen.displayName:
-                      tabLabel = translate('Printing');
+                      tabLabel = translate('SD Files');
                       break;
 
                     case SettingScreen.displayName:
-                      tabLabel = translate('Cài đặt');
+                      tabLabel = translate('Setting');
                       break;
                   }
 
