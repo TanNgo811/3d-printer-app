@@ -17,14 +17,12 @@ export class CommandRepository extends Repository {
       .pipe(Repository.responseDataMapper<any>());
   };
 
-  public readonly sendCommandPlain = (
-    command?: string,
-  ): Observable<boolean> => {
+  public readonly sendCommandPlain = (command?: string): Observable<any> => {
     const encodeCommand = encodeURI(command!);
     const params = `${PRINTER_URL}${COMMAND_ENDPOINT.PLAIN}=${encodeCommand}&PAGEID=0`;
     return this.http
-      .get<boolean>(params, {})
-      .pipe(Repository.responseDataMapper<boolean>());
+      .get<any>(params, {})
+      .pipe(Repository.responseDataMapper<any>());
   };
 
   public readonly sendCommandSilence = (

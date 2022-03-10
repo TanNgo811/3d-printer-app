@@ -8,7 +8,13 @@ import DefaultLayout from 'src/components/templates/DefaultLayout/DefaultLayout'
 import {SvgIcon} from 'react3l-native-kit';
 import SupportItem from 'src/components/morecules/SupportItem/SupportItem';
 import {Colors} from 'src/styles';
-import {EditInformationScreen, ChangeServerScreen} from 'src/screens/Root';
+import {
+  GeneralSettingScreen,
+  EditPrinterConfigurationScreen,
+  EditNetworkInformationScreen,
+  EditPrinterInformationScreen,
+  ChangeServerScreen,
+} from 'src/screens/Root';
 
 /**
  * File: SettingScreen.tsx
@@ -36,9 +42,29 @@ const SettingScreen: FC<PropsWithChildren<SettingScreenProps>> = (
       onPress: () => handleGoToScreen(ChangeServerScreen.displayName),
       left: <SvgIcon component={require('assets/icons/24/check.svg')} />,
     },
+
     {
-      title: translate('Thay đổi thông tin máy in'),
-      onPress: () => handleGoToScreen(EditInformationScreen.displayName),
+      title: translate('Thay đổi thông số máy in'),
+      onPress: () => handleGoToScreen(EditPrinterInformationScreen.displayName),
+      left: <SvgIcon component={require('assets/icons/24/message-edit.svg')} />,
+    },
+
+    {
+      title: translate('Thay đổi thông số mạng'),
+      onPress: () => handleGoToScreen(EditNetworkInformationScreen.displayName),
+      left: <SvgIcon component={require('assets/icons/24/message-edit.svg')} />,
+    },
+
+    {
+      title: translate('Thay đổi thông tin chung'),
+      onPress: () =>
+        handleGoToScreen(EditPrinterConfigurationScreen.displayName),
+      left: <SvgIcon component={require('assets/icons/24/message-edit.svg')} />,
+    },
+
+    {
+      title: translate('General Setting'),
+      onPress: () => handleGoToScreen(GeneralSettingScreen.displayName),
       left: <SvgIcon component={require('assets/icons/24/message-edit.svg')} />,
     },
   ];
@@ -47,7 +73,7 @@ const SettingScreen: FC<PropsWithChildren<SettingScreenProps>> = (
     <>
       <DefaultLayout
         customHeader={false}
-        title={translate('Cài đặt')}
+        title={translate('Setting')}
         isLeftIcon={false}
         contentScrollable={true}
         backGround={Colors.Secondary}>

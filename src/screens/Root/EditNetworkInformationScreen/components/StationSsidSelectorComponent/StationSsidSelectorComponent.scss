@@ -1,0 +1,49 @@
+/**
+ * StationSsidSelectorComponent
+ * 2022-03-09 23:04:06
+ */
+
+@import "src/styles/colors";
+
+.buttonConfirmContainer {
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.dropdownContainer {
+  border-radius: 5px;
+  border: 0.5px;
+  margin-bottom: 8px;
+}
+
+.contentContainer {
+  border: 0.5px;
+  border-radius: 5px;
+  padding: 12px 8px;
+  background-color: white;
+}
+
+.textInput {
+  padding: 0;
+}
+
+.choiceContainer {
+  margin-top: 8px;
+}
+
+.itemChoice {
+  padding: 8px 12px;
+  border-radius: 5px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.separator {
+  border-bottom: map-get($colors, 'secondary');
+  border-bottom-width: 0.5px;
+}
+
+.itemRight {
+  width: 20%;
+}

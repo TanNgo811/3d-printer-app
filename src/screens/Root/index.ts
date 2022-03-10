@@ -1,5 +1,11 @@
 export * from './ChangeServerScreen';
 
-export * from './EditInformationScreen';
+export * from './EditPrinterInformationScreen';
 
 export * from './PrintProgressScreen';
+
+export * from './EditNetworkInformationScreen';
+
+export * from './EditPrinterConfigurationScreen';
+
+export * from './GeneralSettingScreen';

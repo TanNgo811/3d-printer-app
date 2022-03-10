@@ -1,0 +1,125 @@
+/**
+ * Styles for Component.tsx
+ * @created 2021-11-22 14:37:25
+ * @author TanNgo <ngotientan811@gmail.com>
+ */
+
+@import "src/styles/colors";
+
+.bgNone {
+  background-color: white;
+  padding: 12px 16px 12px 8px;
+  border-radius: 4px;
+  border: 1px solid #EDEDED;
+}
+
+.input {
+  color: map-get($colors, 'disable-text');
+}
+
+.inputView {}
+
+.iconR {}
+
+.itemTitle {
+  font-size: 15px;
+  line-height: 24px;
+  color: map-get($colors, 'gray-text');
+}
+
+.title {
+  font-size: 15px;
+  line-height: 24px;
+  color: map-get($colors, "gray-text");
+}
+
+.rightContainer {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.labelContainer {}
+
+.label {
+  font-size: 15px;
+  line-height: 24px;
+  color: map-get($colors, 'gray-text');
+  padding-left: 16px;
+}
+
+.selectedLabel {
+  color: map-get($colors, 'light-blue');
+  padding: 0;
+  margin-right: 4px;
+}
+
+.selectedItem {
+  background-color: rgba(108, 176, 255, 0.1);
+  padding: 4px 8px;
+  margin-right: 16px;
+}
+
+.selectedOption {
+  background-color: #F6F6F6;
+  border-radius: 4px;
+}
+
+.border {
+  border-color: map-get($colors, 'dark-blue');
+  border-radius: 4px;
+}
+
+.selectedOptionSpecial {
+  background-color: rgba(108, 176, 255, 0.1);
+  border-radius: 4px;
+}
+
+.disableText {
+  color: map-get($colors, 'disable-text');
+}
+
+.radioButton {
+  width: 10%;
+}
+
+.modalContainer {
+  padding: 16px;
+  border-radius: 10px;
+  background-color: map-get($colors, 'white');
+  max-height: 80%;
+}
+
+.titleModal {
+  color: map-get($colors, 'primary');
+  font-size: 16px;
+}
+
+.inputModalContainer {
+  flex-direction: row;
+  border: 1px solid map-get($colors, 'primary');
+  border-radius: 10px;
+  padding: 0 8px;
+  margin: 16px 0;
+  align-items: center;
+}
+
+.inputModal {
+  margin-left: 8px;
+  color: map-get($colors, 'primary');
+  font-size: 14px;
+  flex: 1;
+}
+
+.valueHaveErrorMessage {
+  text-align: left;
+  color: map-get($colors, 'danger');
+  padding-right: 16px;
+  font-size: 11px;
+  padding-top: 6px;
+}
+
+.borderError {
+  border: 1px solid map-get($colors, 'danger');
+}

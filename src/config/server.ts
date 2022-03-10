@@ -1,4 +1,5 @@
 import {BehaviorSubject, Subscription} from 'rxjs';
+import {asyncStorageRepository} from 'src/repositories/async-storage-repository';
 
 export const serverUrl: BehaviorSubject<string> = new BehaviorSubject<string>(
   '192.168.0.1',
@@ -17,6 +18,7 @@ export class Server {
 
   public setServerUrl = async (url: string) => {
     this.serverUrl = url;
+    await asyncStorageRepository.saveServerUrl(url);
   };
 
   public subscribeServerUrl = (task: (url: string) => any): Subscription => {

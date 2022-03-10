@@ -16,4 +16,10 @@ export enum GCode {
   SelectSDFile = 'M23',
 
   ListSDFile = 'M20',
+
+  GetNetworkConfiguration = '[ESP400]',
+
+  SubmitNetworkConfiguration = '[ESP401]',
+
+  GetApList = '[ESP410]',
 }
