@@ -13,6 +13,8 @@ import {store} from './store';
 import {AppLanguage} from './types/AppLanguage';
 import {NavigationContainer} from '@react-navigation/native';
 import nameof from 'ts-nameof.macro';
+import {asyncStorageRepository} from 'src/repositories/async-storage-repository';
+import {server} from 'src/config/server';
 
 const App = React.lazy(async () => {
   await localization.initialize({
@@ -28,6 +30,14 @@ const App = React.lazy(async () => {
       suffix: '}}',
     },
   });
+
+  await asyncStorageRepository.initialize();
+
+  const serverUrl = await asyncStorageRepository.getServerUrl();
+
+  if (serverUrl) {
+    await server.setServerUrl(serverUrl);
+  }
 
   return import('./App');
 });

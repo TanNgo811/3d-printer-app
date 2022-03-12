@@ -1,8 +1,9 @@
 import {BehaviorSubject, Subscription} from 'rxjs';
 import {asyncStorageRepository} from 'src/repositories/async-storage-repository';
+import {PRINTER_URL} from 'src/config/const';
 
 export const serverUrl: BehaviorSubject<string> = new BehaviorSubject<string>(
-  '192.168.0.1',
+  PRINTER_URL,
 );
 
 export class Server {

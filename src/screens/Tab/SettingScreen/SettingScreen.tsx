@@ -9,11 +9,12 @@ import {SvgIcon} from 'react3l-native-kit';
 import SupportItem from 'src/components/morecules/SupportItem/SupportItem';
 import {Colors} from 'src/styles';
 import {
-  GeneralSettingScreen,
-  EditPrinterConfigurationScreen,
-  EditNetworkInformationScreen,
-  EditPrinterInformationScreen,
+  PrinterInformationScreen,
   ChangeServerScreen,
+  EditNetworkInformationScreen,
+  EditPrinterConfigurationScreen,
+  EditPrinterInformationScreen,
+  GeneralSettingScreen,
 } from 'src/screens/Root';
 
 /**
@@ -41,6 +42,12 @@ const SettingScreen: FC<PropsWithChildren<SettingScreenProps>> = (
       title: translate('Thay đổi IP'),
       onPress: () => handleGoToScreen(ChangeServerScreen.displayName),
       left: <SvgIcon component={require('assets/icons/24/check.svg')} />,
+    },
+
+    {
+      title: translate('Thông số máy in'),
+      onPress: () => handleGoToScreen(PrinterInformationScreen.displayName),
+      left: <SvgIcon component={require('assets/icons/24/message-edit.svg')} />,
     },
 
     {

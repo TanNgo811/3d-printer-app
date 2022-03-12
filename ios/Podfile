@@ -12,6 +12,10 @@ target 'PrinterManagement' do
     :hermes_enabled => false
   )
 
+
+  pod 'lottie-ios', :path => '../node_modules/lottie-ios'
+
+
   target 'PrinterManagementTests' do
     inherit! :complete
     # Pods for testing

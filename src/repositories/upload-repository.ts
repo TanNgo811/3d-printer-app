@@ -1,9 +1,9 @@
 import {Repository} from 'react3l-common';
 import {httpConfig} from 'src/config/repository';
-import {PRINTER_URL} from 'src/config/const';
 import {COMMAND_ENDPOINT} from 'src/config/endpoint';
 import type {DocumentPickerResponse} from 'react-native-document-picker';
 import type {Observable} from 'rxjs';
+import {server} from 'src/config/server';
 
 export class UploadRepository extends Repository {
   constructor() {
@@ -14,7 +14,7 @@ export class UploadRepository extends Repository {
     file: DocumentPickerResponse,
     onUploadProgress?: (progressEvent: any) => void,
   ): Observable<any> => {
-    const params = `${PRINTER_URL}${COMMAND_ENDPOINT.UPLOAD_SERIAL}`;
+    const params = `${server.serverUrl}${COMMAND_ENDPOINT.UPLOAD_SERIAL}`;
 
     const formData = new FormData();
 

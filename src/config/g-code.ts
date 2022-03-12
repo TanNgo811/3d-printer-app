@@ -22,4 +22,8 @@ export enum GCode {
   SubmitNetworkConfiguration = '[ESP401]',
 
   GetApList = '[ESP410]',
+
+  GetPrinterInfo = '[ESP420]plain',
+
+  RestartPrinter = '[ESP444]RESTART',
 }

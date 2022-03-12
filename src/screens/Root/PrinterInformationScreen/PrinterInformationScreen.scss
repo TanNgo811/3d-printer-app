@@ -1,0 +1,30 @@
+/**
+ * PrinterInformationScreen
+ * 2022-03-12 09:15:55
+ */
+
+.container {
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+}
+
+.itemContainer {
+  flex-direction: row;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  background-color: white;
+
+  padding: 12px 8px ;
+
+  margin-bottom: 8px;
+
+  border-radius: 5px;
+}
+
+.contentContainerStyle {
+  padding-bottom: 50%;
+}

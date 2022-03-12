@@ -9,9 +9,8 @@ import {useTranslation} from 'react-i18next';
 import type {StackScreenProps} from '@react-navigation/stack';
 import {ANDROID} from 'src/config/const';
 import {Button, Input} from 'src/components/atoms';
-import {appSettingsSlice} from 'src/store/app-settings-slice';
-import {store} from 'src/store';
-import {server} from 'src/config/server';
+import {useServerUrlService} from 'src/services/server-url-service/use-server-url-service';
+import LoadingComponent from 'src/components/atoms/LoadingComponent';
 
 export function ChangeServerScreen(
   props: PropsWithChildren<ChangeServerScreenProps>,
@@ -20,21 +19,8 @@ export function ChangeServerScreen(
 
   const [translate] = useTranslation();
 
-  const [url, setUrl] = React.useState<string>('');
-
-  const handleChangeUrl = React.useCallback((text: string) => {
-    setUrl(text.trim());
-  }, []);
-
-  const handleConfirmChange = React.useCallback(async () => {
-    await server.setServerUrl(url);
-
-    await store.dispatch(
-      appSettingsSlice.actions.changeServerUrl(url.toLocaleLowerCase()),
-    );
-
-    navigation.goBack();
-  }, [navigation, url]);
+  const [url, handleConfirmChange, handleChangeUrl, loading] =
+    useServerUrlService();
 
   return (
     <>
@@ -59,6 +45,7 @@ export function ChangeServerScreen(
             placeholder={translate('Địa chỉ IP')}
             inputStyle={[atomicStyles.text, styles.inputStyle]}
             onChange={handleChangeUrl}
+            defaultValue={url}
           />
         </View>
         <Button
@@ -69,6 +56,8 @@ export function ChangeServerScreen(
           buttonStyle={styles.btn}
         />
       </DefaultLayout>
+
+      <LoadingComponent loading={loading} />
     </>
   );
 }

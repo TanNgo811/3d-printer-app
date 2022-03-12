@@ -1,21 +1,21 @@
 import nameof from 'ts-nameof.macro';
 import styles from './TabNavigator.scss';
 import {useTranslation} from 'react-i18next';
-import {Pressable, View, Text} from 'react-native';
+import {Pressable, Text, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {ANDROID, IOS} from 'src/config/const';
-import {atomicStyles} from 'src/styles';
-import {Colors} from 'src/styles';
-import Bag from 'assets/icons/tabs/bag';
+import {atomicStyles, Colors} from 'src/styles';
 import Home from 'assets/icons/tabs/home';
-import Send from 'assets/icons/tabs/send';
 import React, {FC, PropsWithChildren, ReactElement} from 'react';
 import {
-  PrintingScreen,
   HomeScreen,
-  TrackingScreen,
+  PrintingScreen,
   SettingScreen,
+  TrackingScreen,
 } from 'src/screens/Tab';
+import Tracking from 'assets/icons/tabs/tracking';
+import Folder from 'assets/icons/tabs/folder';
+import Setting from 'assets/icons/tabs/setting';
 
 /**
  * File: TabNavigator.tsx
@@ -76,23 +76,23 @@ const TabNavigator: FC<PropsWithChildren<TabNavigatorProps>> = (
 
                     case TrackingScreen.displayName:
                       return focused ? (
-                        <Send color={Colors.Primary} />
+                        <Tracking color={Colors.Primary} />
                       ) : (
-                        <Send color={Colors.Neutral} />
+                        <Tracking color={Colors.Neutral} />
                       );
 
                     case PrintingScreen.displayName:
                       return focused ? (
-                        <Send color={Colors.Primary} />
+                        <Folder color={Colors.Primary} />
                       ) : (
-                        <Send color={Colors.Neutral} />
+                        <Folder color={Colors.Neutral} />
                       );
 
                     case SettingScreen.displayName:
                       return focused ? (
-                        <Bag color={Colors.Primary} />
+                        <Setting color={Colors.Primary} />
                       ) : (
-                        <Bag color={Colors.Neutral} />
+                        <Setting color={Colors.Neutral} />
                       );
                   }
                 },
