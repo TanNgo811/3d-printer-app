@@ -3,6 +3,7 @@ import {commandRepository} from 'src/repositories/command-repository';
 import {showError} from 'src/helpers/toasty';
 import {AppState, AppStateStatus} from 'react-native';
 import {useTranslation} from 'react-i18next';
+import {useNavigation} from '@react-navigation/native';
 
 export interface TemperatureValue {
   temp: number;
@@ -13,6 +14,8 @@ export interface TemperatureValue {
 export function useTemperatureChartService(
   refreshTime?: number,
 ): [TemperatureValue[], (state: AppStateStatus) => void, TemperatureValue] {
+  const navigation = useNavigation();
+
   const [tempArray, setTempArray] = React.useState<TemperatureValue[]>([]);
 
   const [latestTemp, setLatestTemp] = React.useState<TemperatureValue>();
@@ -65,10 +68,18 @@ export function useTemperatureChartService(
   );
 
   React.useEffect(() => {
-    setTimeout(() => {
+    const intervalJob: number = setInterval(() => {
       handleGetCurrentTemp();
     }, refreshTime ?? 3000);
-  }, [handleGetCurrentTemp, refreshTime]);
+
+    const unsubscribe = navigation!.addListener('blur', () => {
+      clearInterval(intervalJob);
+    });
+
+    return function cleanup() {
+      unsubscribe();
+    };
+  }, [handleGetCurrentTemp, navigation, refreshTime]);
 
   return [tempArray, handleUpdateCurrentTemp, latestTemp!];
 }

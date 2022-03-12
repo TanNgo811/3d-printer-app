@@ -8,6 +8,7 @@ import com.microsoft.codepush.react.CodePush
 import java.lang.reflect.InvocationTargetException
 import com.airbnb.android.react.lottie.LottiePackage;
 
+
 class MainApplication : Application(), ReactApplication {
     private val mReactNativeHost: ReactNativeHost = object : ReactNativeHost(this) {
         override fun getUseDeveloperSupport(): Boolean {

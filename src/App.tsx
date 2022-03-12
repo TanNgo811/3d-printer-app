@@ -10,8 +10,13 @@
 
 import React from 'react';
 import RootNavigator from 'src/navigators/RootNavigator/RootNavigator';
+import {IOS} from 'src/config/const';
 
 const App = () => {
+  React.useEffect(() => {
+    IOS && require('react-native-splash-screen').default.hide();
+  }, []);
+
   return <RootNavigator />;
 };
 

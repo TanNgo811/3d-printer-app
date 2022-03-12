@@ -16,6 +16,8 @@ target 'PrinterManagement' do
   pod 'lottie-ios', :path => '../node_modules/lottie-ios'
 
 
+  pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+
   target 'PrinterManagementTests' do
     inherit! :complete
     # Pods for testing

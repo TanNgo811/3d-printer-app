@@ -122,7 +122,7 @@ const TabNavigator: FC<PropsWithChildren<TabNavigatorProps>> = (
                         styles.label,
                         focused
                           ? atomicStyles.textPrimary
-                          : atomicStyles.textSecondaryColor,
+                          : atomicStyles.textSecondary,
                         atomicStyles.bold,
                         ANDROID && atomicStyles.androidBold,
                       ]}>
