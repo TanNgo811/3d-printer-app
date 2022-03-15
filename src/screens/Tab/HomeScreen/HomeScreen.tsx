@@ -4,7 +4,7 @@ import styles from './HomeScreen.scss';
 import {ScrollView, StatusBar, Text, TextInput, View} from 'react-native';
 import type {StackScreenProps} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
-import {atomicStyles} from 'src/styles';
+import {atomicStyles, Colors} from 'src/styles';
 import {useMoveCommandService} from 'src/services/command/use-move-command-service';
 import {usePositionCommandService} from 'src/services/command/use-position-command-service';
 import AddIcon from 'assets/tsx/24/AddIcon';
@@ -269,7 +269,12 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
               <View style={[styles.inputContainer]}>
                 <TextInput
                   onChangeText={() => {}}
-                  style={[styles.extruderInput, atomicStyles.text]}
+                  style={[
+                    atomicStyles.textDark,
+                    styles.extruderInput,
+                    atomicStyles.text,
+                  ]}
+                  placeholderTextColor={Colors.Gray}
                   placeholder={translate('Chiều dài nhựa đùn ...')}
                 />
                 <Text style={[atomicStyles.textPrimary]}>
@@ -280,7 +285,12 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
               <View style={[atomicStyles.mt8px, styles.inputContainer]}>
                 <TextInput
                   onChangeText={() => {}}
-                  style={[styles.extruderInput, atomicStyles.text]}
+                  style={[
+                    atomicStyles.textDark,
+                    styles.extruderInput,
+                    atomicStyles.text,
+                  ]}
+                  placeholderTextColor={Colors.Gray}
                   placeholder={translate('Tốc độ đùn ...')}
                 />
                 <Text style={[atomicStyles.textPrimary]}>

@@ -43,6 +43,7 @@ const TabNavigator: FC<PropsWithChildren<TabNavigatorProps>> = (
           tabBarLabelPosition: 'below-icon',
           tabBarHideOnKeyboard: true,
           unmountOnBlur: true,
+          lazy: false,
         }}
         initialRouteName={TabNavigator.displayName}>
         {[HomeScreen, TrackingScreen, PrintingScreen, SettingScreen].map(

@@ -3,7 +3,7 @@ import {commandRepository} from 'src/repositories/command-repository';
 import {showError} from 'src/helpers/toasty';
 import {AppState, AppStateStatus} from 'react-native';
 import {useTranslation} from 'react-i18next';
-import {useNavigation} from '@react-navigation/native';
+import type {StackScreenProps} from '@react-navigation/stack';
 
 export interface TemperatureValue {
   temp: number;
@@ -12,13 +12,24 @@ export interface TemperatureValue {
 }
 
 export function useTemperatureChartService(
+  navigation: StackScreenProps<any>['navigation'],
   refreshTime?: number,
-): [TemperatureValue[], (state: AppStateStatus) => void, TemperatureValue] {
-  const navigation = useNavigation();
-
+): [
+  TemperatureValue[],
+  (state: AppStateStatus) => void,
+  TemperatureValue,
+  boolean,
+  (status: boolean) => void,
+] {
   const [tempArray, setTempArray] = React.useState<TemperatureValue[]>([]);
 
   const [latestTemp, setLatestTemp] = React.useState<TemperatureValue>();
+
+  const [enableTracking, setEnableTracking] = React.useState<boolean>(false);
+
+  const handleSetStatusEnableTracking = React.useCallback((status: boolean) => {
+    setEnableTracking(status);
+  }, []);
 
   const [translate] = useTranslation();
 
@@ -52,7 +63,7 @@ export function useTemperatureChartService(
         case 'active':
           timeout = setInterval(() => {
             handleGetCurrentTemp();
-          }, 10000);
+          }, 3000);
           break;
 
         case 'inactive':
@@ -68,18 +79,22 @@ export function useTemperatureChartService(
   );
 
   React.useEffect(() => {
-    const intervalJob: number = setInterval(() => {
-      handleGetCurrentTemp();
-    }, refreshTime ?? 3000);
+    if (enableTracking) {
+      const interval = setInterval(() => {
+        handleGetCurrentTemp();
+      }, 3000);
 
-    const unsubscribe = navigation!.addListener('blur', () => {
-      clearInterval(intervalJob);
-    });
+      return () => {
+        clearInterval(interval);
+      };
+    }
+  }, [enableTracking, handleGetCurrentTemp]);
 
-    return function cleanup() {
-      unsubscribe();
-    };
-  }, [handleGetCurrentTemp, navigation, refreshTime]);
-
-  return [tempArray, handleUpdateCurrentTemp, latestTemp!];
+  return [
+    tempArray,
+    handleUpdateCurrentTemp,
+    latestTemp!,
+    enableTracking,
+    handleSetStatusEnableTracking,
+  ];
 }

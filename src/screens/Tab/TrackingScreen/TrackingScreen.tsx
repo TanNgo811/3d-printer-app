@@ -7,6 +7,7 @@ import {
   KeyboardAvoidingView,
   ListRenderItemInfo,
   StatusBar,
+  Switch,
   Text,
   TextInput,
   TouchableOpacity,
@@ -27,6 +28,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {SvgIcon} from 'react3l-native-kit';
 import {useTerminalService} from 'src/services/terminal-service/use-terminal-service';
 import type {TerminalCommand} from 'src/types/TerminalCommand';
+import {showInfo} from 'src/helpers/toasty';
 
 /**
  * File: TrackingScreen.tsx
@@ -38,13 +40,19 @@ import type {TerminalCommand} from 'src/types/TerminalCommand';
 const TrackingScreen: FC<PropsWithChildren<ProcessingScreenProps>> = (
   props: PropsWithChildren<ProcessingScreenProps>,
 ): ReactElement => {
-  const {} = props;
+  const {navigation} = props;
 
   const {top} = useSafeAreaInsets();
 
   const [translate] = useTranslation();
 
-  const [tempArray, , latestTemp] = useTemperatureChartService();
+  const [
+    tempArray,
+    ,
+    latestTemp,
+    enableTracking,
+    handleSetStatusEnableTracking,
+  ] = useTemperatureChartService(navigation, 3000);
 
   const [
     listCommand,
@@ -69,9 +77,15 @@ const TrackingScreen: FC<PropsWithChildren<ProcessingScreenProps>> = (
             ]}>
             {translate('Temperature Tracking')} {`- ${latestTemp?.temp}`}
           </Text>
+
+          <Switch
+            value={enableTracking}
+            onValueChange={handleSetStatusEnableTracking}
+          />
         </View>
 
         {/*-------------CHART------------------*/}
+
         <VictoryChart
           width={SCREEN_WIDTH}
           theme={VictoryTheme.material}
@@ -111,7 +125,12 @@ const TrackingScreen: FC<PropsWithChildren<ProcessingScreenProps>> = (
               value={command}
               onChangeText={handleChangeTextCommand}
               placeholder={translate('Enter G-Code ...')}
-              style={[styles.inputTerminal, atomicStyles.textDark]}
+              style={[
+                atomicStyles.textDark,
+                styles.inputTerminal,
+                atomicStyles.textDark,
+              ]}
+              placeholderTextColor={Colors.Gray}
             />
             {execLoading ? (
               <View style={[styles.buttonContainer, atomicStyles.bgPrimary]}>

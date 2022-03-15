@@ -2,7 +2,7 @@ import type {PropsWithChildren, ReactElement} from 'react';
 import React from 'react';
 import styles from './ConfigItemComponent.scss';
 import nameof from 'ts-nameof.macro';
-import {atomicStyles} from 'src/styles';
+import {atomicStyles, Colors} from 'src/styles';
 import {Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {ANDROID} from 'src/config/const';
 import {SvgIcon} from 'react3l-native-kit';
@@ -91,7 +91,7 @@ export function ConfigItemComponent(
                     atomicStyles.alignItemsCenter,
                     atomicStyles.justifyContentBetween,
                   ]}>
-                  <Text style={[atomicStyles.text]}>
+                  <Text style={[atomicStyles.textDark, atomicStyles.text]}>
                     {
                       listValue?.find(item => item?.code === selectedValue)
                         ?.name
@@ -122,7 +122,8 @@ export function ConfigItemComponent(
                   ]}
                   onChangeText={handleChangeText}
                   defaultValue={initialValue}
-                  placeholder={'typing...'}
+                  placeholder={'Nhập ...'}
+                  placeholderTextColor={Colors.Gray}
                 />
               </View>
             )}
@@ -150,6 +151,7 @@ export function ConfigItemComponent(
               ]}>
               <Text
                 style={[
+                  atomicStyles.textDark,
                   atomicStyles.text,
                   item?.code === selectedValue && atomicStyles.textWhite,
                 ]}>

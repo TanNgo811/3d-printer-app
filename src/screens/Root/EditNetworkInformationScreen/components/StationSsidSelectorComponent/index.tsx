@@ -85,7 +85,9 @@ export function StationSsidSelectorComponent(
                   atomicStyles.alignItemsCenter,
                   atomicStyles.justifyContentBetween,
                 ]}>
-                <Text style={[atomicStyles.text]}>{selectedValue}</Text>
+                <Text style={[atomicStyles.textDark, atomicStyles.text]}>
+                  {selectedValue}
+                </Text>
 
                 <View>
                   {isShowDropdown ? (
@@ -129,6 +131,7 @@ export function StationSsidSelectorComponent(
               ]}>
               <Text
                 style={[
+                  atomicStyles.textDark,
                   atomicStyles.text,
                   item?.SSID === selectedValue && atomicStyles.textWhite,
                 ]}>

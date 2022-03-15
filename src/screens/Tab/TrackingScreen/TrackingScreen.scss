@@ -20,11 +20,11 @@
 }
 
 .titleContainer {
+  flex-direction: row;
   align-content: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 16px 32px 0 32px;
   width: 100%;
-  padding-top: 16px;
-  margin-bottom: -30px;
 }
 
 .terminalContainer {

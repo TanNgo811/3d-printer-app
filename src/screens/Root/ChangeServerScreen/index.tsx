@@ -4,7 +4,7 @@ import styles from './ChangeServerScreen.scss';
 import nameof from 'ts-nameof.macro';
 import DefaultLayout from 'src/components/templates/DefaultLayout/DefaultLayout';
 import {Text, View} from 'react-native';
-import {atomicStyles} from 'src/styles';
+import {atomicStyles, Colors} from 'src/styles';
 import {useTranslation} from 'react-i18next';
 import type {StackScreenProps} from '@react-navigation/stack';
 import {ANDROID} from 'src/config/const';
@@ -43,9 +43,14 @@ export function ChangeServerScreen(
           <Input
             containerStyle={styles.inputContainer}
             placeholder={translate('Địa chỉ IP')}
-            inputStyle={[atomicStyles.text, styles.inputStyle]}
+            inputStyle={[
+              atomicStyles.textDark,
+              atomicStyles.text,
+              styles.inputStyle,
+            ]}
             onChange={handleChangeUrl}
             defaultValue={url}
+            placeholderTextColor={Colors.Gray}
           />
         </View>
         <Button
