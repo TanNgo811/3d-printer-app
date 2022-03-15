@@ -54,13 +54,13 @@ export function useListSdFileService(
         next: (result: string) => {
           const convertArray = result?.match(/(.+).GCO/gm);
 
-          setListFile(convertArray!);
+          setListFile(convertArray! ?? listFile);
         },
         error: () => {
           showError(translate('error'));
         },
       });
-  }, [handleOffGetListLoading, handleOnGetListLoading, translate]);
+  }, [handleOffGetListLoading, handleOnGetListLoading, listFile, translate]);
 
   const handleDeleteFileFromSd = React.useCallback(
     (fileName: string) => {

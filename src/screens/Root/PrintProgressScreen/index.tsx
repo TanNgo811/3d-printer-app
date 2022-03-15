@@ -62,7 +62,7 @@ export function PrintProgressScreen(
                   ANDROID && atomicStyles.androidBold,
                   styles.fileName,
                 ]}>
-                {translate('File: ')}
+                {translate('File')}
                 {fileName}
               </Text>
             </View>

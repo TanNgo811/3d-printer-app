@@ -63,14 +63,14 @@ export function PrintingScreen(
     useBoolean(false);
 
   const handleGoToPrintProgressScreen = React.useCallback(() => {
-    if (currentFile) {
+    if (currentFile || printProgress) {
       navigation.navigate(PrintProgressScreen.displayName!, {
         fileName: currentFile,
       });
     } else {
       showInfo(translate('Select a file to print'));
     }
-  }, [currentFile, navigation, translate]);
+  }, [currentFile, navigation, printProgress, translate]);
 
   const handleConfirmPrint = React.useCallback(
     (file: string) => {
