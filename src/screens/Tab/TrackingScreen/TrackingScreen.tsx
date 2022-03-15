@@ -28,7 +28,6 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {SvgIcon} from 'react3l-native-kit';
 import {useTerminalService} from 'src/services/terminal-service/use-terminal-service';
 import type {TerminalCommand} from 'src/types/TerminalCommand';
-import {showInfo} from 'src/helpers/toasty';
 
 /**
  * File: TrackingScreen.tsx
