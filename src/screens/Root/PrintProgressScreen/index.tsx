@@ -11,6 +11,9 @@ import * as Progress from 'react-native-progress';
 import {ANDROID} from 'src/config/const';
 import RoundButton from 'src/components/atoms/RoundButton';
 import {useProgressServices} from 'src/services/print-service/use-progress-services';
+import TemperatureControl from 'src/screens/Tab/HomeScreen/components/TemperatureControl';
+import {useExtruderCommandService} from 'src/services/command/use-extruder-command-service';
+import {useFanCommandService} from 'src/services/command/use-fan-command-service';
 
 export function PrintProgressScreen(
   props: PropsWithChildren<PrintOnProcessScreenProps>,
@@ -31,6 +34,11 @@ export function PrintProgressScreen(
     isPrinting,
     handlePrintSDFile,
   ] = useProgressServices(navigation, true);
+
+  const [currentTemp, , , handleSendTemperatureCommand] =
+    useExtruderCommandService();
+
+  const [, handleSendFanSpeedCommand] = useFanCommandService();
 
   return (
     <>
@@ -106,6 +114,27 @@ export function PrintProgressScreen(
               onPress={handleAbortProgress}
             />
           </View>
+
+          <TemperatureControl
+            title={translate('Temperature')}
+            maxValue={280}
+            currentValue={currentTemp}
+            onConfirm={handleSendTemperatureCommand}
+          />
+
+          <TemperatureControl
+            title={translate('Bed')}
+            maxValue={120}
+            currentValue={0}
+            onChangeSlide={() => {}}
+          />
+
+          <TemperatureControl
+            title={translate('Fan')}
+            maxValue={255}
+            currentValue={0}
+            onConfirm={handleSendFanSpeedCommand}
+          />
         </View>
       </DefaultLayout>
     </>

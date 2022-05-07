@@ -9,12 +9,10 @@ import {SvgIcon} from 'react3l-native-kit';
 import SupportItem from 'src/components/morecules/SupportItem/SupportItem';
 import {Colors} from 'src/styles';
 import {
-  PrinterInformationScreen,
   ChangeServerScreen,
   EditNetworkInformationScreen,
-  EditPrinterConfigurationScreen,
-  EditPrinterInformationScreen,
   GeneralSettingScreen,
+  PrinterInformationScreen,
 } from 'src/screens/Root';
 
 /**
@@ -50,11 +48,11 @@ const SettingScreen: FC<PropsWithChildren<SettingScreenProps>> = (
       left: <SvgIcon component={require('assets/icons/24/message-edit.svg')} />,
     },
 
-    {
-      title: translate('Thay đổi thông số máy in'),
-      onPress: () => handleGoToScreen(EditPrinterInformationScreen.displayName),
-      left: <SvgIcon component={require('assets/icons/24/message-edit.svg')} />,
-    },
+    // {
+    //   title: translate('Thay đổi thông số máy in'),
+    //   onPress: () => handleGoToScreen(EditPrinterInformationScreen.displayName),
+    //   left: <SvgIcon component={require('assets/icons/24/message-edit.svg')} />,
+    // },
 
     {
       title: translate('Thay đổi thông số mạng'),
@@ -62,12 +60,12 @@ const SettingScreen: FC<PropsWithChildren<SettingScreenProps>> = (
       left: <SvgIcon component={require('assets/icons/24/message-edit.svg')} />,
     },
 
-    {
-      title: translate('Thay đổi thông tin chung'),
-      onPress: () =>
-        handleGoToScreen(EditPrinterConfigurationScreen.displayName),
-      left: <SvgIcon component={require('assets/icons/24/message-edit.svg')} />,
-    },
+    // {
+    //   title: translate('Thay đổi thông tin chung'),
+    //   onPress: () =>
+    //     handleGoToScreen(EditPrinterConfigurationScreen.displayName),
+    //   left: <SvgIcon component={require('assets/icons/24/message-edit.svg')} />,
+    // },
 
     {
       title: translate('General Setting'),

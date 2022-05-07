@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* PrinterManagementTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* PrinterManagementTests.m */; };
-		0457559DC40120E2B0EA464D /* libPods-PrinterManagement.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC38572FB33763C8CF39283 /* libPods-PrinterManagement.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		60DC1D62B867FC779EBC2D06 /* libPods-PrinterManagement-PrinterManagementTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 890882E3CE85C0DFA27F43A8 /* libPods-PrinterManagement-PrinterManagementTests.a */; };
+		656F8DF00779CA8FFEFD398F /* libPods-PrinterManagement-PrinterManagementTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B25C85620BA86EA52E459B3C /* libPods-PrinterManagement-PrinterManagementTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		856F5C5B0B13406489F9DD91 /* SVN-GilroyBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FC80F613D09447469DBFEAD1 /* SVN-GilroyBold.otf */; };
+		C88A85B39B8D1EAA206B4237 /* libPods-PrinterManagement.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EFB18DA6913EEA600102534 /* libPods-PrinterManagement.a */; };
 		D840875DB6FD4DB4BAD183C4 /* SVN-GilroyLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E65FC688B1E449FB0B4AF96 /* SVN-GilroyLight.otf */; };
 /* End PBXBuildFile section */
 
@@ -39,26 +39,26 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = PrinterManagement/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = PrinterManagement/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = PrinterManagement/main.m; sourceTree = "<group>"; };
+		1EFB18DA6913EEA600102534 /* libPods-PrinterManagement.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PrinterManagement.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E65FC688B1E449FB0B4AF96 /* SVN-GilroyLight.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SVN-GilroyLight.otf"; path = "../assets/fonts/SVN-GilroyLight.otf"; sourceTree = "<group>"; };
 		43EC9BE3013E485485EA79C3 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		4A1D672E54234FB9A25DF038 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		4BD0DE3FF6924178DC902E02 /* Pods-PrinterManagement.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrinterManagement.debug.xcconfig"; path = "Target Support Files/Pods-PrinterManagement/Pods-PrinterManagement.debug.xcconfig"; sourceTree = "<group>"; };
 		4FEB939B4FA94C2CAA7E7585 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		64D608D2590D4BFCA5A655F7 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		6817ACD82237451888C450FB /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		708C0608AB114AE59D8CD2D6 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = PrinterManagement/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		83F04686BB08B7027C076CFC /* Pods-PrinterManagement-PrinterManagementTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrinterManagement-PrinterManagementTests.release.xcconfig"; path = "Target Support Files/Pods-PrinterManagement-PrinterManagementTests/Pods-PrinterManagement-PrinterManagementTests.release.xcconfig"; sourceTree = "<group>"; };
 		855AAD462A184E3D88507375 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
-		890882E3CE85C0DFA27F43A8 /* libPods-PrinterManagement-PrinterManagementTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PrinterManagement-PrinterManagementTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		90781C251D7456C9BC08675A /* Pods-PrinterManagement.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrinterManagement.debug.xcconfig"; path = "Target Support Files/Pods-PrinterManagement/Pods-PrinterManagement.debug.xcconfig"; sourceTree = "<group>"; };
+		934C6B4952FB4C3B7C6C1461 /* Pods-PrinterManagement-PrinterManagementTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrinterManagement-PrinterManagementTests.release.xcconfig"; path = "Target Support Files/Pods-PrinterManagement-PrinterManagementTests/Pods-PrinterManagement-PrinterManagementTests.release.xcconfig"; sourceTree = "<group>"; };
 		A5D701985EBF4F44A0FAE64B /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		A7C160AEEBF501CDEC667D04 /* Pods-PrinterManagement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrinterManagement.release.xcconfig"; path = "Target Support Files/Pods-PrinterManagement/Pods-PrinterManagement.release.xcconfig"; sourceTree = "<group>"; };
+		B25C85620BA86EA52E459B3C /* libPods-PrinterManagement-PrinterManagementTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PrinterManagement-PrinterManagementTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4C31034578A4D1BBB84FAEE /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		C6BE446CC0E24C1D8E921BBC /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
-		CFC38572FB33763C8CF39283 /* libPods-PrinterManagement.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PrinterManagement.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D00B49533479D3486BE7DA75 /* Pods-PrinterManagement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrinterManagement.release.xcconfig"; path = "Target Support Files/Pods-PrinterManagement/Pods-PrinterManagement.release.xcconfig"; sourceTree = "<group>"; };
-		D010E8AD075C171D49A5F959 /* Pods-PrinterManagement-PrinterManagementTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrinterManagement-PrinterManagementTests.debug.xcconfig"; path = "Target Support Files/Pods-PrinterManagement-PrinterManagementTests/Pods-PrinterManagement-PrinterManagementTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D3E42DA99CA344A180DF4A13 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		DAB0B30777BC4B3C9966D81C /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		E50CB52983FF7F0AE56D1A9D /* Pods-PrinterManagement-PrinterManagementTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrinterManagement-PrinterManagementTests.debug.xcconfig"; path = "Target Support Files/Pods-PrinterManagement-PrinterManagementTests/Pods-PrinterManagement-PrinterManagementTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E573C84EB73C4B95BCD5E7F9 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		E83619633EB349CEA10B7F43 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -71,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60DC1D62B867FC779EBC2D06 /* libPods-PrinterManagement-PrinterManagementTests.a in Frameworks */,
+				656F8DF00779CA8FFEFD398F /* libPods-PrinterManagement-PrinterManagementTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,7 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0457559DC40120E2B0EA464D /* libPods-PrinterManagement.a in Frameworks */,
+				C88A85B39B8D1EAA206B4237 /* libPods-PrinterManagement.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,8 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				CFC38572FB33763C8CF39283 /* libPods-PrinterManagement.a */,
-				890882E3CE85C0DFA27F43A8 /* libPods-PrinterManagement-PrinterManagementTests.a */,
+				1EFB18DA6913EEA600102534 /* libPods-PrinterManagement.a */,
+				B25C85620BA86EA52E459B3C /* libPods-PrinterManagement-PrinterManagementTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -186,10 +186,10 @@
 		E233CBF5F47BEE60B243DCF8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				90781C251D7456C9BC08675A /* Pods-PrinterManagement.debug.xcconfig */,
-				D00B49533479D3486BE7DA75 /* Pods-PrinterManagement.release.xcconfig */,
-				D010E8AD075C171D49A5F959 /* Pods-PrinterManagement-PrinterManagementTests.debug.xcconfig */,
-				83F04686BB08B7027C076CFC /* Pods-PrinterManagement-PrinterManagementTests.release.xcconfig */,
+				4BD0DE3FF6924178DC902E02 /* Pods-PrinterManagement.debug.xcconfig */,
+				A7C160AEEBF501CDEC667D04 /* Pods-PrinterManagement.release.xcconfig */,
+				E50CB52983FF7F0AE56D1A9D /* Pods-PrinterManagement-PrinterManagementTests.debug.xcconfig */,
+				934C6B4952FB4C3B7C6C1461 /* Pods-PrinterManagement-PrinterManagementTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -201,12 +201,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "PrinterManagementTests" */;
 			buildPhases = (
-				B68924443CA30D04E539E253 /* [CP] Check Pods Manifest.lock */,
+				FC72FB1C95F1A1A9A76BD0AA /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				FA230DFC397CBA724618349D /* [CP] Embed Pods Frameworks */,
-				DC38A6B748426930A5177161 /* [CP] Copy Pods Resources */,
+				869ABCA2D661AA40A826EA5C /* [CP] Embed Pods Frameworks */,
+				FF08DC8F7365E33FDEA640D5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -222,14 +222,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "PrinterManagement" */;
 			buildPhases = (
-				736149EBD19935C7D61442D6 /* [CP] Check Pods Manifest.lock */,
+				D98DD66D1429C0E7F927A9CF /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				BBB7CBA66C620A744AB3251B /* [CP] Embed Pods Frameworks */,
-				3ED2F6A897084451A7563238 /* [CP] Copy Pods Resources */,
+				1E1E44637B56DBC0C425BB17 /* [CP] Embed Pods Frameworks */,
+				46A4EF463085D511D31C1BF1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -312,7 +312,24 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		3ED2F6A897084451A7563238 /* [CP] Copy Pods Resources */ = {
+		1E1E44637B56DBC0C425BB17 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PrinterManagement/Pods-PrinterManagement-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PrinterManagement/Pods-PrinterManagement-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PrinterManagement/Pods-PrinterManagement-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		46A4EF463085D511D31C1BF1 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -329,7 +346,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PrinterManagement/Pods-PrinterManagement-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		736149EBD19935C7D61442D6 /* [CP] Check Pods Manifest.lock */ = {
+		869ABCA2D661AA40A826EA5C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PrinterManagement-PrinterManagementTests/Pods-PrinterManagement-PrinterManagementTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PrinterManagement-PrinterManagementTests/Pods-PrinterManagement-PrinterManagementTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PrinterManagement-PrinterManagementTests/Pods-PrinterManagement-PrinterManagementTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D98DD66D1429C0E7F927A9CF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -351,7 +385,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B68924443CA30D04E539E253 /* [CP] Check Pods Manifest.lock */ = {
+		FC72FB1C95F1A1A9A76BD0AA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -373,57 +407,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BBB7CBA66C620A744AB3251B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PrinterManagement/Pods-PrinterManagement-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PrinterManagement/Pods-PrinterManagement-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PrinterManagement/Pods-PrinterManagement-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DC38A6B748426930A5177161 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PrinterManagement-PrinterManagementTests/Pods-PrinterManagement-PrinterManagementTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PrinterManagement-PrinterManagementTests/Pods-PrinterManagement-PrinterManagementTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PrinterManagement-PrinterManagementTests/Pods-PrinterManagement-PrinterManagementTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FA230DFC397CBA724618349D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PrinterManagement-PrinterManagementTests/Pods-PrinterManagement-PrinterManagementTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PrinterManagement-PrinterManagementTests/Pods-PrinterManagement-PrinterManagementTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PrinterManagement-PrinterManagementTests/Pods-PrinterManagement-PrinterManagementTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -441,6 +424,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FF08DC8F7365E33FDEA640D5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PrinterManagement-PrinterManagementTests/Pods-PrinterManagement-PrinterManagementTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PrinterManagement-PrinterManagementTests/Pods-PrinterManagement-PrinterManagementTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PrinterManagement-PrinterManagementTests/Pods-PrinterManagement-PrinterManagementTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -476,7 +476,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D010E8AD075C171D49A5F959 /* Pods-PrinterManagement-PrinterManagementTests.debug.xcconfig */;
+			baseConfigurationReference = E50CB52983FF7F0AE56D1A9D /* Pods-PrinterManagement-PrinterManagementTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -503,7 +503,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 83F04686BB08B7027C076CFC /* Pods-PrinterManagement-PrinterManagementTests.release.xcconfig */;
+			baseConfigurationReference = 934C6B4952FB4C3B7C6C1461 /* Pods-PrinterManagement-PrinterManagementTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -527,7 +527,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90781C251D7456C9BC08675A /* Pods-PrinterManagement.debug.xcconfig */;
+			baseConfigurationReference = 4BD0DE3FF6924178DC902E02 /* Pods-PrinterManagement.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -553,7 +553,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D00B49533479D3486BE7DA75 /* Pods-PrinterManagement.release.xcconfig */;
+			baseConfigurationReference = A7C160AEEBF501CDEC667D04 /* Pods-PrinterManagement.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

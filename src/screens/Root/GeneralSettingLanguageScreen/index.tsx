@@ -25,11 +25,11 @@ export function GeneralSettingLanguageScreen(
 
   const languages = [
     {
-      title: 'Tiếng Việt',
+      title: translate('lang.vietnamese'),
       language: 'vi',
     },
     {
-      title: 'English',
+      title: translate('lang.english'),
       language: 'en',
     },
   ];
@@ -50,7 +50,7 @@ export function GeneralSettingLanguageScreen(
     <>
       <DefaultLayout
         customHeader={false}
-        title={translate('Ngôn ngữ')}
+        title={translate('lang.languages')}
         isLeftIcon={true}
         contentScrollable={true}
         onLeftPress={navigation.goBack}

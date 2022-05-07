@@ -294,6 +294,8 @@ PODS:
     - React-Core
   - react-native-document-picker (8.0.0):
     - React-Core
+  - react-native-fetch-blob (0.10.6):
+    - React-Core
   - react-native-flipper (0.125.0):
     - React-Core
   - react-native-keep-awake (4.0.0):
@@ -475,6 +477,7 @@ DEPENDENCIES:
   - react-native-config (from `../node_modules/react-native-config`)
   - "react-native-cookies (from `../node_modules/@react-native-cookies/cookies`)"
   - react-native-document-picker (from `../node_modules/react-native-document-picker`)
+  - react-native-fetch-blob (from `../node_modules/react-native-fetch-blob`)
   - react-native-flipper (from `../node_modules/react-native-flipper`)
   - react-native-keep-awake (from `../node_modules/react-native-keep-awake`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
@@ -575,6 +578,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-cookies/cookies"
   react-native-document-picker:
     :path: "../node_modules/react-native-document-picker"
+  react-native-fetch-blob:
+    :path: "../node_modules/react-native-fetch-blob"
   react-native-flipper:
     :path: "../node_modules/react-native-flipper"
   react-native-keep-awake:
@@ -674,6 +679,7 @@ SPEC CHECKSUMS:
   react-native-config: 6502b1879f97ed5ac570a029961fc35ea606cd14
   react-native-cookies: cd92f3824ed1e32a20802e8185101e14bb5b76da
   react-native-document-picker: 429972f7ece4463aa5bcdd789622b3a674a3c5d1
+  react-native-fetch-blob: 0cbdf9764c75d9438c162427395f4bc35a857d5a
   react-native-flipper: 3d9e214b412b3ce81e0d73bdcdc8097c0b0e8578
   react-native-keep-awake: afad8a51dfef9fe9655a6344771be32c8596d774
   react-native-safe-area-context: 584dc04881deb49474363f3be89e4ca0e854c057
@@ -709,4 +715,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 86a6830e7a25931d8a8f062b6d215c22973ff496
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

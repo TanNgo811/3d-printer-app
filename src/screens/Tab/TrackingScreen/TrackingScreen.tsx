@@ -15,12 +15,6 @@ import {
 } from 'react-native';
 import type {StackScreenProps} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
-import {
-  VictoryArea,
-  VictoryAxis,
-  VictoryChart,
-  VictoryTheme,
-} from 'victory-native';
 import {ANDROID, SCREEN_HEIGHT, SCREEN_WIDTH} from 'src/config/const';
 import {useTemperatureChartService} from 'src/services/temperature-chart/use-temperature-chart-service';
 import {atomicStyles, Colors} from 'src/styles';
@@ -28,6 +22,13 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {SvgIcon} from 'react3l-native-kit';
 import {useTerminalService} from 'src/services/terminal-service/use-terminal-service';
 import type {TerminalCommand} from 'src/types/TerminalCommand';
+import KeepAwake from 'react-native-keep-awake';
+import {
+  VictoryArea,
+  VictoryAxis,
+  VictoryChart,
+  VictoryTheme,
+} from 'victory-native';
 
 /**
  * File: TrackingScreen.tsx
@@ -39,7 +40,7 @@ import type {TerminalCommand} from 'src/types/TerminalCommand';
 const TrackingScreen: FC<PropsWithChildren<ProcessingScreenProps>> = (
   props: PropsWithChildren<ProcessingScreenProps>,
 ): ReactElement => {
-  const {navigation} = props;
+  const {} = props;
 
   const {top} = useSafeAreaInsets();
 
@@ -51,7 +52,8 @@ const TrackingScreen: FC<PropsWithChildren<ProcessingScreenProps>> = (
     latestTemp,
     enableTracking,
     handleSetStatusEnableTracking,
-  ] = useTemperatureChartService(navigation, 3000);
+    handleConvertCsv,
+  ] = useTemperatureChartService();
 
   const [
     listCommand,
@@ -60,6 +62,14 @@ const TrackingScreen: FC<PropsWithChildren<ProcessingScreenProps>> = (
     handleChangeTextCommand,
     command,
   ] = useTerminalService();
+
+  React.useEffect(() => {
+    KeepAwake.activate();
+
+    return () => {
+      KeepAwake.deactivate();
+    };
+  }, []);
 
   return (
     <>
@@ -82,6 +92,12 @@ const TrackingScreen: FC<PropsWithChildren<ProcessingScreenProps>> = (
             onValueChange={handleSetStatusEnableTracking}
           />
         </View>
+
+        {/*<Button*/}
+        {/*  title={`Test CSV ${tempArray.length}`}*/}
+        {/*  isOutlined={false}*/}
+        {/*  onPress={handleConvertCsv}*/}
+        {/*/>*/}
 
         {/*-------------CHART------------------*/}
 

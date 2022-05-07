@@ -17,6 +17,8 @@ import {asyncStorageRepository} from 'src/repositories/async-storage-repository'
 import {server} from 'src/config/server';
 
 const App = React.lazy(async () => {
+  await asyncStorageRepository.initialize();
+
   await localization.initialize({
     lng: AppLanguage.VIETNAMESE,
     fallbackLng: AppLanguage.VIETNAMESE,
@@ -30,8 +32,6 @@ const App = React.lazy(async () => {
       suffix: '}}',
     },
   });
-
-  await asyncStorageRepository.initialize();
 
   const serverUrl = await asyncStorageRepository.getServerUrl();
 
