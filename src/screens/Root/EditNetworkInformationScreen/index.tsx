@@ -37,7 +37,7 @@ export function EditNetworkInformationScreen(
     <>
       <DefaultLayout
         customHeader={false}
-        title={translate('Thay đổi thông số mạng')}
+        title={translate('setting.networkSetting')}
         isLeftIcon={true}
         contentScrollable={true}
         onLeftPress={navigation.goBack}>
@@ -47,7 +47,7 @@ export function EditNetworkInformationScreen(
           <>
             {/*//BaudRate*/}
             <ConfigItemComponent
-              title={translate('Baud Rate')}
+              title={translate('setting.baudRate')}
               type={'dropdown'}
               listValue={baudRateList}
               initialValue={networkConfig && networkConfig![0]?.V}
@@ -58,7 +58,7 @@ export function EditNetworkInformationScreen(
             {/*//SleepMode*/}
             <ConfigItemComponent
               onConfirm={() => {}}
-              title={translate('Sleep Mode')}
+              title={translate('setting.sleepMode')}
               type={'dropdown'}
               initialValue={networkConfig && networkConfig![1]?.V}
               listValue={sleepModeList}
@@ -68,7 +68,7 @@ export function EditNetworkInformationScreen(
 
             {/*//Web Port*/}
             <ConfigItemComponent
-              title={translate('Web Port')}
+              title={translate('setting.webPort')}
               type={'input'}
               initialValue={networkConfig && networkConfig![2]?.V}
               P={networkConfig && networkConfig![2]?.P}
@@ -77,7 +77,7 @@ export function EditNetworkInformationScreen(
 
             {/*//Data Port*/}
             <ConfigItemComponent
-              title={translate('Data Port')}
+              title={translate('setting.dataPort')}
               type={'input'}
               initialValue={networkConfig && networkConfig![3]?.V}
               P={networkConfig && networkConfig![3]?.P}
@@ -86,7 +86,7 @@ export function EditNetworkInformationScreen(
 
             {/*/Host Name*/}
             <ConfigItemComponent
-              title={translate('Host Name')}
+              title={translate('setting.hostName')}
               type={'input'}
               initialValue={networkConfig && networkConfig![4]?.V}
               P={networkConfig && networkConfig![4]?.P}
@@ -95,7 +95,7 @@ export function EditNetworkInformationScreen(
 
             {/*//Wifi Mode*/}
             <ConfigItemComponent
-              title={translate('Wifi Mode')}
+              title={translate('setting.wifiMode')}
               type={'dropdown'}
               listValue={wifiModeList}
               initialValue={networkConfig && networkConfig![5]?.V}
@@ -105,7 +105,7 @@ export function EditNetworkInformationScreen(
 
             {/*/Station SSID*/}
             <StationSsidSelectorComponent
-              title={translate('Station SSID')}
+              title={translate('setting.stationSSID')}
               onRefreshList={handleGetListSSID}
               listValue={listSSID}
               initialValue={networkConfig && networkConfig![6]?.V}
@@ -116,7 +116,7 @@ export function EditNetworkInformationScreen(
             {/*/Station Password*/}
             <ConfigItemComponent
               onConfirm={() => {}}
-              title={translate('Station Password')}
+              title={translate('setting.stationPassword')}
               type={'input'}
               initialValue={networkConfig && networkConfig![7]?.V}
               P={networkConfig && networkConfig![7]?.P}
@@ -126,7 +126,7 @@ export function EditNetworkInformationScreen(
             {/*/Station Network Mode*/}
             <ConfigItemComponent
               onConfirm={() => {}}
-              title={translate('Station Network Mode')}
+              title={translate('setting.stationNetworkMode')}
               type={'dropdown'}
               listValue={stationNetworkModeList}
               initialValue={networkConfig && networkConfig![8]?.V}
@@ -137,7 +137,7 @@ export function EditNetworkInformationScreen(
             {/*/Station IP Mode*/}
             <ConfigItemComponent
               onConfirm={() => {}}
-              title={translate('Station IP Mode')}
+              title={translate('setting.stationIpMode')}
               type={'dropdown'}
               listValue={stationIpModeList}
               initialValue={networkConfig && networkConfig![9]?.V}
@@ -148,7 +148,7 @@ export function EditNetworkInformationScreen(
             {/*//Station Static IP*/}
             <ConfigItemComponent
               onConfirm={() => {}}
-              title={translate('Station Static IP')}
+              title={translate('setting.stationStaticIp')}
               type={'input'}
               initialValue={networkConfig && networkConfig![10]?.V}
               P={networkConfig && networkConfig![10]?.P}
@@ -158,7 +158,7 @@ export function EditNetworkInformationScreen(
             {/*//Station Static Mask*/}
             <ConfigItemComponent
               onConfirm={() => {}}
-              title={translate('Station Static Mask')}
+              title={translate('setting.stationStaticMask')}
               type={'input'}
               initialValue={networkConfig && networkConfig![11]?.V}
               P={networkConfig && networkConfig![11]?.P}
@@ -168,7 +168,7 @@ export function EditNetworkInformationScreen(
             {/*/Station Static Gateway*/}
             <ConfigItemComponent
               onConfirm={() => {}}
-              title={translate('Station Static Gateway')}
+              title={translate('setting.stationStaticGateway')}
               type={'input'}
               initialValue={networkConfig && networkConfig![12]?.V}
               P={networkConfig && networkConfig![12]?.P}
@@ -178,7 +178,7 @@ export function EditNetworkInformationScreen(
             {/*/AP SSID*/}
             <ConfigItemComponent
               onConfirm={() => {}}
-              title={translate('AP SSID')}
+              title={translate('setting.apSsid')}
               type={'input'}
               initialValue={networkConfig && networkConfig![13]?.V}
               P={networkConfig && networkConfig![13]?.P}
@@ -188,7 +188,7 @@ export function EditNetworkInformationScreen(
             {/*AP Password*/}
             <ConfigItemComponent
               onConfirm={() => {}}
-              title={translate('AP Password')}
+              title={translate('setting.apPassword')}
               type={'input'}
               initialValue={networkConfig && networkConfig![14]?.V}
               P={networkConfig && networkConfig![14]?.P}
@@ -198,7 +198,7 @@ export function EditNetworkInformationScreen(
             {/*/AP Network Mode*/}
             <ConfigItemComponent
               onConfirm={() => {}}
-              title={translate('AP Network Mode')}
+              title={translate('setting.apNetworkMode')}
               type={'dropdown'}
               listValue={apNetworkModeList}
               initialValue={networkConfig && networkConfig![15]?.V}
@@ -209,7 +209,7 @@ export function EditNetworkInformationScreen(
             {/*/SSID Visible*/}
             <ConfigItemComponent
               onConfirm={() => {}}
-              title={translate('SSID Visible')}
+              title={translate('setting.ssidVisible')}
               type={'input'}
               initialValue={networkConfig && networkConfig![16]?.V}
               listValue={ssidVisibleList}
@@ -220,7 +220,7 @@ export function EditNetworkInformationScreen(
             {/*/AP Channel*/}
             <ConfigItemComponent
               onConfirm={() => {}}
-              title={translate('AP Channel')}
+              title={translate('setting.apChannel')}
               type={'dropdown'}
               listValue={apChannelList}
               initialValue={networkConfig && networkConfig![17]?.V}
@@ -231,7 +231,7 @@ export function EditNetworkInformationScreen(
             {/*/Authentication*/}
             <ConfigItemComponent
               onConfirm={() => {}}
-              title={translate('Authenciation')}
+              title={translate('setting.authentication')}
               type={'dropdown'}
               listValue={apAuthenticationList}
               initialValue={networkConfig && networkConfig![18]?.V}
@@ -242,7 +242,7 @@ export function EditNetworkInformationScreen(
             {/*/AP IP Mode*/}
             <ConfigItemComponent
               onConfirm={() => {}}
-              title={translate('AP IP Mode')}
+              title={translate('setting.apIpMode')}
               type={'dropdown'}
               listValue={apIpModeList}
               initialValue={networkConfig && networkConfig![19]?.V}
@@ -253,7 +253,7 @@ export function EditNetworkInformationScreen(
             {/*AP Static IP*/}
             <ConfigItemComponent
               onConfirm={() => {}}
-              title={translate('AP Static IP')}
+              title={translate('setting.apStaticIp')}
               type={'input'}
               initialValue={networkConfig && networkConfig![20]?.V}
               P={networkConfig && networkConfig![20]?.P}
@@ -263,7 +263,7 @@ export function EditNetworkInformationScreen(
             {/*AP Static Mask*/}
             <ConfigItemComponent
               onConfirm={() => {}}
-              title={translate('AP Static Mask')}
+              title={translate('setting.apStaticMask')}
               type={'input'}
               initialValue={networkConfig && networkConfig![21]?.V}
               P={networkConfig && networkConfig![21]?.P}
@@ -272,7 +272,7 @@ export function EditNetworkInformationScreen(
 
             {/*AP Static Gateway*/}
             <ConfigItemComponent
-              title={translate('AP Static Gateway')}
+              title={translate('setting.apStaticGateway')}
               type={'input'}
               initialValue={networkConfig && networkConfig![22]?.V}
               P={networkConfig && networkConfig![22]?.P}
@@ -282,7 +282,7 @@ export function EditNetworkInformationScreen(
             {/*Notification*/}
             <ConfigItemComponent
               onConfirm={() => {}}
-              title={translate('Notification')}
+              title={translate('setting.notification')}
               type={'dropdown'}
               listValue={notificationModeList}
               initialValue={networkConfig && networkConfig![23]?.V}
@@ -293,7 +293,7 @@ export function EditNetworkInformationScreen(
             {/*Token 1*/}
             <ConfigItemComponent
               onConfirm={() => {}}
-              title={translate('Token 1')}
+              title={translate('setting.token1')}
               type={'input'}
               initialValue={networkConfig && networkConfig![24]?.V}
               P={networkConfig && networkConfig![24]?.P}
@@ -303,17 +303,17 @@ export function EditNetworkInformationScreen(
             {/*Token 2*/}
             <ConfigItemComponent
               onConfirm={() => {}}
-              title={translate('Token 2')}
+              title={translate('setting.token2')}
               type={'input'}
               initialValue={networkConfig && networkConfig![25]?.V}
               P={networkConfig && networkConfig![25]?.P}
               T={networkConfig && networkConfig![25]?.T}
             />
 
-            {/*Notification Setting*/}
+            {/*Notification setting*/}
             <ConfigItemComponent
               onConfirm={() => {}}
-              title={translate('Notification Setting')}
+              title={translate('setting.notificationSetting')}
               type={'input'}
               initialValue={networkConfig && networkConfig![26]?.V}
               P={networkConfig && networkConfig![26]?.P}
@@ -323,7 +323,7 @@ export function EditNetworkInformationScreen(
             {/*/Auto Notification*/}
             <ConfigItemComponent
               onConfirm={() => {}}
-              title={translate('Auto Notification')}
+              title={translate('setting.autoNotification')}
               type={'dropdown'}
               listValue={autoNotificationList}
               initialValue={networkConfig && networkConfig![27]?.V}

@@ -52,7 +52,7 @@ export function useTemperatureChartService(): [
         ]);
       },
       error: () => {
-        showError(translate('Cant get temperature'));
+        showError(translate('error.canNotGetTemperature'));
       },
     });
   }, [tempArray, translate]);

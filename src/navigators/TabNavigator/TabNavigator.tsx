@@ -101,19 +101,19 @@ const TabNavigator: FC<PropsWithChildren<TabNavigatorProps>> = (
                   let tabLabel;
                   switch (ScreenComponent.displayName) {
                     case HomeScreen.displayName:
-                      tabLabel = translate('Control');
+                      tabLabel = translate('tab.control');
                       break;
 
                     case TrackingScreen.displayName:
-                      tabLabel = translate('Tracking');
+                      tabLabel = translate('tab.tracking');
                       break;
 
                     case PrintingScreen.displayName:
-                      tabLabel = translate('SD Files');
+                      tabLabel = translate('tab.sdCard');
                       break;
 
                     case SettingScreen.displayName:
-                      tabLabel = translate('Setting');
+                      tabLabel = translate('tab.setting');
                       break;
                   }
 

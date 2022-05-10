@@ -11,11 +11,14 @@ import type {StackScreenProps} from '@react-navigation/stack';
 import {commandRepository} from 'src/repositories/command-repository';
 import {GCode} from 'src/config/g-code';
 import {showInfo} from 'src/helpers/toasty';
+import {useTranslation} from 'react-i18next';
 
 export function ConfigItemComponent(
   props: PropsWithChildren<ConfigItemComponentProps>,
 ): ReactElement {
   const {type, title, initialValue, listValue, P, T} = props;
+
+  const [translate] = useTranslation();
 
   const [isShowDropdown, handleToggleDropdown, , handleOffDropdown] =
     useBoolean(false);
@@ -122,7 +125,7 @@ export function ConfigItemComponent(
                   ]}
                   onChangeText={handleChangeText}
                   defaultValue={initialValue}
-                  placeholder={'Nhập ...'}
+                  placeholder={translate('app.enter')}
                   placeholderTextColor={Colors.Gray}
                 />
               </View>

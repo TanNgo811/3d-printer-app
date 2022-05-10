@@ -1,0 +1,5 @@
+{
+  "error.canNotGetTemperature": "Error: Can not get temperature",
+  "error.error": "Error",
+  "error.beginPrintingFailed": "Error: Begin Printing Failed"
+}

@@ -1,0 +1,15 @@
+{
+  "control.temperature": "Nhiệt độ",
+  "control.bed": "Bàn in",
+  "control.fan": "Quạt tản nhiệt",
+  "control.xAxis": "X",
+  "control.yAxis": "Y",
+  "control.zAxis": "Z",
+  "control.extruder": "Đùn nhựa",
+  "control.filamentLength": "Độ dài nhựa phun",
+  "control.mm": "mm",
+  "control.extruderSpeed": "Tốc độ phun",
+  "control.extruderSpeedPerMin": "mm/min",
+  "control.backward": "Lùi",
+  "control.forward": "Tiến"
+}

@@ -9,7 +9,7 @@ import 'react-native-gesture-handler';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {Provider} from 'react-redux';
 import localization from 'react3l-localization';
-import {store} from './store';
+import {globalSlice, store} from './store';
 import {AppLanguage} from './types/AppLanguage';
 import {NavigationContainer} from '@react-navigation/native';
 import nameof from 'ts-nameof.macro';
@@ -32,6 +32,23 @@ const App = React.lazy(async () => {
       suffix: '}}',
     },
   });
+
+  await localization.addLanguage(
+    AppLanguage.VIETNAMESE,
+    require('./i18n/vi.json'),
+  );
+
+  await localization.addLanguage(
+    AppLanguage.ENGLISH,
+    require('./i18n/en.json'),
+  );
+
+  const {changeLanguage} = globalSlice.actions;
+
+  const language: string | null = await asyncStorageRepository.getLanguage();
+  if (language !== AppLanguage.VIETNAMESE) {
+    store.dispatch(changeLanguage(language as AppLanguage));
+  }
 
   const serverUrl = await asyncStorageRepository.getServerUrl();
 

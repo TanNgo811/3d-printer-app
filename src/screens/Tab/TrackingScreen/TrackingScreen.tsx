@@ -52,7 +52,7 @@ const TrackingScreen: FC<PropsWithChildren<ProcessingScreenProps>> = (
     latestTemp,
     enableTracking,
     handleSetStatusEnableTracking,
-    handleConvertCsv,
+    ,
   ] = useTemperatureChartService();
 
   const [
@@ -84,7 +84,7 @@ const TrackingScreen: FC<PropsWithChildren<ProcessingScreenProps>> = (
               ANDROID && atomicStyles.androidBold,
               atomicStyles.textCenter,
             ]}>
-            {translate('Temperature Tracking')} {`- ${latestTemp?.temp}`}
+            {translate('tracking.title')} {`- ${latestTemp?.temp}`}
           </Text>
 
           <Switch
@@ -139,7 +139,7 @@ const TrackingScreen: FC<PropsWithChildren<ProcessingScreenProps>> = (
             <TextInput
               value={command}
               onChangeText={handleChangeTextCommand}
-              placeholder={translate('Enter G-Code ...')}
+              placeholder={translate('tracking.enterGCode')}
               style={[
                 atomicStyles.textDark,
                 styles.inputTerminal,

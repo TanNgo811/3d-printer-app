@@ -44,7 +44,7 @@ export function PrintProgressScreen(
     <>
       <DefaultLayout
         customHeader={false}
-        title={translate('Progress')}
+        title={translate('progress.title')}
         isLeftIcon={true}
         onLeftPress={() => navigation.goBack()}
         contentScrollable={true}
@@ -70,14 +70,14 @@ export function PrintProgressScreen(
                   ANDROID && atomicStyles.androidBold,
                   styles.fileName,
                 ]}>
-                {translate('File')}
+                {translate('progress.file')}
                 {fileName}
               </Text>
             </View>
 
             <View style={[atomicStyles.mt4]}>
               <Text style={[atomicStyles.text, atomicStyles.textDark]}>
-                Time Print: ...
+                {translate('progress.timePrint')}
               </Text>
             </View>
           </View>
@@ -85,52 +85,52 @@ export function PrintProgressScreen(
           <View style={styles.buttonsContainer}>
             <RoundButton
               icon={require('assets/icons/24/white-home.svg')}
-              title={translate('Home')}
+              title={translate('progress.home')}
               onPress={handleMoveToHomePosition}
             />
             {isPrinting ? (
               <RoundButton
                 icon={require('assets/icons/24/white-pause.svg')}
-                title={translate('Pause')}
+                title={translate('progress.pause')}
                 onPress={handlePauseProgress}
               />
             ) : (
               <RoundButton
                 icon={require('assets/icons/24/white-play.svg')}
-                title={translate('Play')}
+                title={translate('progress.play')}
                 onPress={handleStartProgress}
               />
             )}
 
             <RoundButton
               icon={require('assets/icons/24/white-refresh.svg')}
-              title={translate('Reset')}
+              title={translate('progress.reset')}
               onPress={() => handlePrintSDFile(fileName)}
             />
 
             <RoundButton
               icon={require('assets/icons/24/white-forbinden.svg')}
-              title={translate('Abort')}
+              title={translate('progress.abort')}
               onPress={handleAbortProgress}
             />
           </View>
 
           <TemperatureControl
-            title={translate('Temperature')}
+            title={translate('control.temperature')}
             maxValue={280}
             currentValue={currentTemp}
             onConfirm={handleSendTemperatureCommand}
           />
 
           <TemperatureControl
-            title={translate('Bed')}
+            title={translate('control.bed')}
             maxValue={120}
             currentValue={0}
             onChangeSlide={() => {}}
           />
 
           <TemperatureControl
-            title={translate('Fan')}
+            title={translate('control.fan')}
             maxValue={255}
             currentValue={0}
             onConfirm={handleSendFanSpeedCommand}

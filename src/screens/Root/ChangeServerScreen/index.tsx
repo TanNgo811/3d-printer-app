@@ -26,7 +26,7 @@ export function ChangeServerScreen(
     <>
       <DefaultLayout
         customHeader={false}
-        title={translate('Thay đổi IP')}
+        title={translate('setting.changeIp')}
         isLeftIcon={true}
         contentScrollable={true}
         onLeftPress={navigation.goBack}>
@@ -37,12 +37,13 @@ export function ChangeServerScreen(
               ANDROID && atomicStyles.androidBold,
               atomicStyles.textPrimary,
             ]}>
-            {translate('Nhập địa chỉ IP của thiết bị')}
+            {translate('setting.enterIpAddress')}
+            {/*{translate('Nhập địa chỉ IP của thiết bị')}*/}
           </Text>
 
           <Input
             containerStyle={styles.inputContainer}
-            placeholder={translate('Địa chỉ IP')}
+            placeholder={translate('setting.ipAddress')}
             inputStyle={[
               atomicStyles.textDark,
               atomicStyles.text,
@@ -54,7 +55,7 @@ export function ChangeServerScreen(
           />
         </View>
         <Button
-          title={translate('Xác nhận')}
+          title={translate('app.confirm')}
           onPress={handleConfirmChange}
           isOutlined={false}
           buttonContainerStyle={styles.btnContainer}

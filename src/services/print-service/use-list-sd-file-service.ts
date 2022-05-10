@@ -57,7 +57,7 @@ export function useListSdFileService(
           setListFile(convertArray! ?? listFile);
         },
         error: () => {
-          showError(translate('error'));
+          showError(translate('error.error'));
         },
       });
   }, [handleOffGetListLoading, handleOnGetListLoading, listFile, translate]);
@@ -71,7 +71,7 @@ export function useListSdFileService(
             handleGetListFileFromSdCard();
           },
           error: () => {
-            showError(translate('error'));
+            showError(translate('error.error'));
           },
         });
     },
@@ -85,13 +85,13 @@ export function useListSdFileService(
       )
       .subscribe({
         next: () => {
-          showSuccess('begin printing successful...');
+          showSuccess('success.beginPrintingSuccessful');
           navigation.navigate(PrintProgressScreen.displayName, {
             fileName: currentFile,
           });
         },
         error: () => {
-          showError(translate('begin printing failed...'));
+          showError(translate('error.beginPrintingFailed'));
         },
       });
   }, [currentFile, navigation, translate]);
@@ -101,22 +101,19 @@ export function useListSdFileService(
       allowMultiSelection: false,
     })
       .then((result: DocumentPickerResponse) => {
-        console.log(result);
         handleOnUploadLoading();
         uploadRepository
           .uploadFile(result, event => {
             setProgress(Math.round((100 * event.loaded) / event.total));
-            console.log(event);
           })
           .pipe(finalize(() => handleOffUploadLoading()))
           .subscribe({
-            next: end => {
-              console.log('uploadFileDone', end);
+            next: () => {
               setProgress(100);
               handleGetListFileFromSdCard();
             },
             error: () => {
-              showError('error');
+              showError(translate('error.error'));
             },
           });
       })
@@ -125,6 +122,7 @@ export function useListSdFileService(
     handleGetListFileFromSdCard,
     handleOffUploadLoading,
     handleOnUploadLoading,
+    translate,
   ]);
 
   const handleSelectFile = React.useCallback((file: string) => {

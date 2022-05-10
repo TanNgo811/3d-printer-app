@@ -20,6 +20,14 @@ export class AsyncStorageRepository {
     return AsyncStorage.getItem(nameof(this.serverUrl));
   };
 
+  public saveLanguage = async (language: string) => {
+    return AsyncStorage.setItem(nameof(this.language), language);
+  };
+
+  public getLanguage = async (): Promise<string | null> => {
+    return AsyncStorage.getItem(nameof(this.language));
+  };
+
   public async initialize(): Promise<void> {
     this.serverUrl = await AsyncStorage.getItem(nameof(this.serverUrl));
   }

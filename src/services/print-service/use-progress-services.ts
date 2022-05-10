@@ -116,10 +116,10 @@ export function useProgressServices(
           next: () => {
             setProgress(0);
 
-            showSuccess('reset print');
+            showSuccess('progress.resetPrintSuccess');
           },
           error: () => {
-            showError(translate('error'));
+            showError(translate('error.error'));
           },
         });
     },

@@ -34,13 +34,13 @@ export function GeneralSettingScreen(
 
   const supportItems = [
     {
-      title: translate('Thay đổi ngôn ngữ'),
+      title: translate('setting.changeLanguage'),
       onPress: () => handleGoToScreen(GeneralSettingLanguageScreen.displayName),
       left: <SvgIcon component={require('assets/icons/24/check.svg')} />,
     },
 
     {
-      title: translate('Restart Printer'),
+      title: translate('setting.restartPrinter'),
       onPress: handleOnModal,
       left: <SvgIcon component={require('assets/icons/24/check.svg')} />,
     },
@@ -56,7 +56,7 @@ export function GeneralSettingScreen(
     <>
       <DefaultLayout
         customHeader={false}
-        title={translate('General Setting')}
+        title={translate('setting.generalSetting')}
         isLeftIcon={true}
         contentScrollable={true}
         onLeftPress={navigation.goBack}
@@ -80,10 +80,10 @@ export function GeneralSettingScreen(
 
       <Confirmation
         isVisible={modal}
-        title={translate('Bạn có muốn restart printer')}
-        labelPrimary={'Có'}
+        title={translate('setting.askRestartPrinter')}
+        labelPrimary={'app.yes'}
         onPressPrimary={handleConfirm}
-        labelSecondary={'Nope'}
+        labelSecondary={'app.no'}
         onPressSecondary={handleOffModal}
       />
     </>

@@ -25,7 +25,7 @@ export function useExtruderCommandService(): [
         setCurrentTemp(parseFloat(modifyResult[0]));
       },
       error: () => {
-        showError(translate('Cant get temperature'));
+        showError(translate('error.canNotGetTemperature'));
       },
     });
   }, [translate]);
@@ -60,10 +60,10 @@ export function useExtruderCommandService(): [
         .sendCommandText(`M104 S${Math.round(temperature!)} T0`)
         .subscribe({
           next: () => {
-            showSuccess(translate('success'));
+            showSuccess(translate('success.success'));
           },
           error: () => {
-            showError(translate('error'));
+            showError(translate('error.error'));
           },
         });
     },

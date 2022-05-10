@@ -68,7 +68,7 @@ export function PrintingScreen(
         fileName: currentFile,
       });
     } else {
-      showInfo(translate('Select a file to print'));
+      showInfo(translate('file.selectFilePrint'));
     }
   }, [currentFile, navigation, translate]);
 
@@ -114,7 +114,7 @@ export function PrintingScreen(
       />
       <DefaultLayout
         customHeader={false}
-        title={translate('SD Files')}
+        title={translate('tab.sdCard')}
         isLeftIcon={true}
         left={<View style={styles.placeholder} />}
         contentScrollable={true}
@@ -140,7 +140,7 @@ export function PrintingScreen(
                     ]}>
                     {listFile?.length} Files
                   </Text>
-                  {translate(' Found')}
+                  ` ${translate('file.found')}`
                 </Text>
               )}
 
@@ -155,7 +155,7 @@ export function PrintingScreen(
                       ANDROID && atomicStyles.androidBold,
                       atomicStyles.mr2,
                     ]}>
-                    {translate('Uploading file')}
+                    {translate('file.uploadingFile')}
                   </Text>
                   <ActivityIndicator color={Colors.Primary} size={'small'} />
                 </View>
@@ -195,7 +195,7 @@ export function PrintingScreen(
                 ANDROID && atomicStyles.androidBold,
                 styles.availableText,
               ]}>
-              {translate('Available')}
+              {translate('file.available')}
             </Text>
           ) : (
             <Progress.Circle
@@ -214,11 +214,11 @@ export function PrintingScreen(
       <Confirmation
         isVisible={confirmModal}
         onBackdropPress={handleCancelPrintConfirm}
-        title={translate('Confirm Printing')}
-        subtitle={translate(`Do you want to print file ${currentFile}?`)}
-        labelSecondary={translate('Cancel')}
+        title={translate('app.confirm')}
+        subtitle={translate('file.askPrintFile') + ` ${currentFile}?`}
+        labelSecondary={translate('app.no')}
         onPressSecondary={handleCancelPrintConfirm}
-        labelPrimary={translate('Yes')}
+        labelPrimary={translate('app.yes')}
         onPressPrimary={() => {
           handlePrintFileFromSd();
           handleOffConfirmModal();

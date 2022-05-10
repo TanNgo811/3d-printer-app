@@ -1,0 +1,15 @@
+{
+  "control.temperature": "Nozzle Temperature",
+  "control.bed": "Bed Temperature",
+  "control.fan": "Fan Speed",
+  "control.xAxis": "X",
+  "control.yAxis": "Y",
+  "control.zAxis": "Z",
+  "control.extruder": "Extruder",
+  "control.filamentLength": "Filament Length",
+  "control.mm": "mm",
+  "control.extruderSpeed": "Extrude Speed",
+  "control.extruderSpeedPerMin": "mm per min",
+  "control.backward": "Backward",
+  "control.forward": "Forward"
+}

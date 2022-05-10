@@ -1,0 +1,10 @@
+{
+  "progress.title": "Tiến độ in",
+  "progress.file": "Tệp in",
+  "progress.timePrint": "Thời gian in",
+  "progress.home": "Vị trí ban đầu",
+  "progress.pause": "Tạm dừng",
+  "progress.play": "Tiếp tục",
+  "progress.reset": "In lại",
+  "progress.abort": "Dừng lại"
+}

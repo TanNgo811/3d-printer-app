@@ -1,0 +1,10 @@
+{
+  "progress.title": "Printing Progress",
+  "progress.file": "File",
+  "progress.timePrint": "Printing Time",
+  "progress.home": "Home",
+  "progress.pause": "Pause",
+  "progress.play": "Continue",
+  "progress.reset": "Reset",
+  "progress.abort": "Abort"
+}

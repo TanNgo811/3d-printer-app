@@ -37,13 +37,13 @@ const SettingScreen: FC<PropsWithChildren<SettingScreenProps>> = (
 
   const supportItems = [
     {
-      title: translate('Thay đổi IP'),
+      title: translate('setting.changeIp'),
       onPress: () => handleGoToScreen(ChangeServerScreen.displayName),
       left: <SvgIcon component={require('assets/icons/24/check.svg')} />,
     },
 
     {
-      title: translate('Thông số máy in'),
+      title: translate('setting.printerDetail'),
       onPress: () => handleGoToScreen(PrinterInformationScreen.displayName),
       left: <SvgIcon component={require('assets/icons/24/message-edit.svg')} />,
     },
@@ -55,7 +55,7 @@ const SettingScreen: FC<PropsWithChildren<SettingScreenProps>> = (
     // },
 
     {
-      title: translate('Thay đổi thông số mạng'),
+      title: translate('setting.networkSetting'),
       onPress: () => handleGoToScreen(EditNetworkInformationScreen.displayName),
       left: <SvgIcon component={require('assets/icons/24/message-edit.svg')} />,
     },
@@ -68,7 +68,7 @@ const SettingScreen: FC<PropsWithChildren<SettingScreenProps>> = (
     // },
 
     {
-      title: translate('General Setting'),
+      title: translate('setting.generalSetting'),
       onPress: () => handleGoToScreen(GeneralSettingScreen.displayName),
       left: <SvgIcon component={require('assets/icons/24/message-edit.svg')} />,
     },
@@ -78,7 +78,7 @@ const SettingScreen: FC<PropsWithChildren<SettingScreenProps>> = (
     <>
       <DefaultLayout
         customHeader={false}
-        title={translate('Setting')}
+        title={translate('tab.setting')}
         isLeftIcon={false}
         contentScrollable={true}
         backGround={Colors.Secondary}>

@@ -1,26 +1,14 @@
 import {configureStore, createSlice} from '@reduxjs/toolkit';
 import {AppLanguage} from 'src/types/AppLanguage';
 import {PRINTER_URL} from 'src/config/const';
-
+import {changeLanguage} from 'src/store/reducers/change-language';
+import type {GlobalState} from 'src/store/GlobalState';
 const middlewares = [];
 
 if (__DEV__) {
   const rnFlipper = require('rn-redux-middleware-flipper').default;
   const reduxFlipper = require('redux-flipper').default;
   middlewares.push(rnFlipper(), reduxFlipper());
-}
-
-type GlobalAction<T> = {
-  type: string;
-  payload: T;
-};
-
-export interface GlobalState {
-  global: {
-    language: AppLanguage;
-
-    baseUrl: string;
-  };
 }
 
 const initialState: GlobalState['global'] = {
@@ -33,12 +21,7 @@ export const globalSlice = createSlice({
   name: 'global',
   initialState,
   reducers: {
-    changeLanguage: (
-      state: GlobalState['global'],
-      action: GlobalAction<AppLanguage>,
-    ) => {
-      state.language = action.payload;
-    },
+    changeLanguage,
 
     changeServerUrl: (
       state: GlobalState['global'],

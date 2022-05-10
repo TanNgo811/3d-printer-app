@@ -97,7 +97,7 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
               atomicStyles.bold,
               ANDROID && atomicStyles.androidBold,
             ]}>
-            X: {printerPosition.X}
+            {translate('control.xAxis')}: {printerPosition.X}
           </Text>
           <View style={[styles.verticalSeparator, atomicStyles.bgPrimary]} />
           <Text
@@ -107,7 +107,7 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
               atomicStyles.bold,
               ANDROID && atomicStyles.androidBold,
             ]}>
-            Y: {printerPosition.Y}
+            {translate('control.yAxis')}: {printerPosition.Y}
           </Text>
           <View style={[styles.verticalSeparator, atomicStyles.bgPrimary]} />
           <Text
@@ -117,7 +117,7 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
               atomicStyles.bold,
               ANDROID && atomicStyles.androidBold,
             ]}>
-            Z: {printerPosition.Z}
+            {translate('control.zAxis')}: {printerPosition.Z}
           </Text>
         </View>
 
@@ -132,7 +132,7 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
                     atomicStyles.bold,
                     ANDROID && atomicStyles.androidBold,
                   ]}>
-                  {translate('Y')}
+                  {translate('control.yAxis')}
                 </Text>
                 <SvgIcon
                   component={require('assets/icons/16/home.svg')}
@@ -188,7 +188,7 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
                     atomicStyles.bold,
                     ANDROID && atomicStyles.androidBold,
                   ]}>
-                  {translate('X')}
+                  {translate('control.xAxis')}
                 </Text>
                 <SvgIcon
                   component={require('assets/icons/16/home.svg')}
@@ -214,7 +214,7 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
                   atomicStyles.bold,
                   ANDROID && atomicStyles.androidBold,
                 ]}>
-                {translate('Z')}
+                {translate('control.zAxis')}
               </Text>
               <SvgIcon
                 component={require('assets/icons/16/home.svg')}
@@ -261,7 +261,7 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
               atomicStyles.bold,
               ANDROID && atomicStyles.androidBold,
             ]}>
-            {translate('Extruder')}
+            {translate('control.extruder')}
           </Text>
 
           <View style={[styles.dropdownContainer]}>
@@ -275,10 +275,10 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
                     atomicStyles.text,
                   ]}
                   placeholderTextColor={Colors.Gray}
-                  placeholder={translate('Chiều dài nhựa đùn ...')}
+                  placeholder={translate('control.filamentLength')}
                 />
                 <Text style={[atomicStyles.textPrimary]}>
-                  {translate('mm')}
+                  {translate('control.mm')}
                 </Text>
               </View>
 
@@ -291,23 +291,23 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
                     atomicStyles.text,
                   ]}
                   placeholderTextColor={Colors.Gray}
-                  placeholder={translate('Tốc độ đùn ...')}
+                  placeholder={translate('control.extruderSpeed')}
                 />
                 <Text style={[atomicStyles.textPrimary]}>
-                  {translate('mm/min')}
+                  {translate('control.extruderSpeedPerMin')}
                 </Text>
               </View>
             </View>
             <View style={[styles.extruderSelectionContainer]}>
               <Button
-                title={'Backward'}
+                title={translate('control.backward')}
                 onPress={() => {}}
                 isOutlined={true}
                 buttonStyle={[styles.extruderButton]}
                 buttonContainerStyle={styles.extruderButtonContainer}
               />
               <Button
-                title={'Forward'}
+                title={translate('control.forward')}
                 onPress={() => {}}
                 isOutlined={false}
                 buttonStyle={styles.forwardContainer}
@@ -318,21 +318,21 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
         </View>
 
         <TemperatureControl
-          title={translate('Temperature')}
+          title={translate('control.temperature')}
           maxValue={280}
           currentValue={currentTemp}
           onConfirm={handleSendTemperatureCommand}
         />
 
         <TemperatureControl
-          title={translate('Bed')}
+          title={translate('control.bed')}
           maxValue={120}
           currentValue={0}
           onChangeSlide={() => {}}
         />
 
         <TemperatureControl
-          title={translate('Fan')}
+          title={translate('control.fan')}
           maxValue={255}
           currentValue={0}
           onConfirm={handleSendFanSpeedCommand}

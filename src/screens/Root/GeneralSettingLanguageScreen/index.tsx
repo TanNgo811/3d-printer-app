@@ -10,9 +10,10 @@ import styles from 'src/screens/Root/GeneralSettingScreen/GeneralSettingScreen.s
 import SupportItem from 'src/components/morecules/SupportItem/SupportItem';
 import {SvgIcon} from 'react3l-native-kit';
 import type {StackScreenProps} from '@react-navigation/stack';
-import {useDispatch, useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 import {languageSelector} from 'src/store/selector';
-import {globalSlice} from 'src/store';
+import {globalSlice, store} from 'src/store';
+import {AppLanguage} from 'src/types/AppLanguage';
 
 export function GeneralSettingLanguageScreen(
   props: PropsWithChildren<GeneralSettingLanguageScreenProps>,
@@ -26,24 +27,22 @@ export function GeneralSettingLanguageScreen(
   const languages = [
     {
       title: translate('lang.vietnamese'),
-      language: 'vi',
+      language: AppLanguage.VIETNAMESE,
     },
     {
       title: translate('lang.english'),
-      language: 'en',
+      language: AppLanguage.ENGLISH,
     },
   ];
-
-  const dispatch = useDispatch();
 
   const {changeLanguage} = globalSlice.actions;
 
   const handleChangeLanguage = React.useCallback(
     item => {
       //
-      dispatch(changeLanguage(item?.language));
+      store.dispatch(changeLanguage(item?.language));
     },
-    [changeLanguage, dispatch],
+    [changeLanguage],
   );
 
   return (
