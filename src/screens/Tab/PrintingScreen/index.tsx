@@ -138,9 +138,9 @@ export function PrintingScreen(
                       atomicStyles.bold,
                       ANDROID && atomicStyles.androidBold,
                     ]}>
-                    {listFile?.length} Files
-                  </Text>
-                  ` ${translate('file.found')}`
+                    {listFile?.length} {translate('file.file')}
+                  </Text>{' '}
+                  {translate('file.found')}
                 </Text>
               )}
 
