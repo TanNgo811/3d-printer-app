@@ -5,8 +5,8 @@ import {ScrollView, StatusBar, Text, TextInput, View} from 'react-native';
 import type {StackScreenProps} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
 import {atomicStyles, Colors} from 'src/styles';
-import {useMoveCommandService} from 'src/services/command/use-move-command-service';
-import {usePositionCommandService} from 'src/services/command/use-position-command-service';
+import {useMoveCommandService} from 'src/services/command-service/use-move-command-service';
+import {usePositionCommandService} from 'src/services/command-service/use-position-command-service';
 import AddIcon from 'assets/tsx/24/AddIcon';
 import ControllerButton from 'src/screens/Tab/HomeScreen/components/ControllerButton';
 import MinusIcon from 'assets/tsx/24/MinusIcon';
@@ -15,9 +15,10 @@ import {ANDROID} from 'src/config/const';
 import {SvgIcon} from 'react3l-native-kit';
 import TemperatureControl from 'src/screens/Tab/HomeScreen/components/TemperatureControl';
 import {Button} from 'src/components/atoms';
-import {useExtruderCommandService} from 'src/services/command/use-extruder-command-service';
-import {useFanCommandService} from 'src/services/command/use-fan-command-service';
+import {useExtruderCommandService} from 'src/services/command-service/use-extruder-command-service';
+import {useFanCommandService} from 'src/services/command-service/use-fan-command-service';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {useExtruderFilament} from 'src/services/command-service/use-extruder-filament';
 
 /**
  * File: HomeScreen.tsx
@@ -36,7 +37,7 @@ export const lengthController = [
 const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
   props: PropsWithChildren<HomeScreenProps>,
 ): ReactElement => {
-  const {} = props;
+  const {navigation} = props;
 
   const [translate] = useTranslation();
 
@@ -50,11 +51,8 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
     setSelectedLength(item);
   }, []);
 
-  const [
-    printerPosition,
-    handleGetCurrentPosition,
-    handleUpdateCurrentPosition,
-  ] = usePositionCommandService();
+  const [printerPosition, handleGetCurrentPosition, ,] =
+    usePositionCommandService();
 
   const [
     handleMoveCustom,
@@ -64,21 +62,27 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
     handleZHome,
   ] = useMoveCommandService(handleGetCurrentPosition);
 
-  const [
-    currentTemp,
-    handleGetCurrentTemp,
-    handleUpdateTemperature,
-    handleSendTemperatureCommand,
-  ] = useExtruderCommandService();
+  const [currentTemp, handleGetCurrentTemp, , handleSendTemperatureCommand] =
+    useExtruderCommandService();
 
   const [fanSpeed, handleSendFanSpeedCommand] = useFanCommandService();
 
+  const [
+    extruderFilament,
+    handleChangeFilamentLength,
+    handleChangeExtruderRate,
+    handleSendCommandExtruderFilament,
+  ] = useExtruderFilament();
+
   React.useEffect(() => {
-    // auto check position
-    // handleUpdateCurrentPosition('active');
-    //auto check temperature
-    // handleUpdateTemperature('active');
-  }, []);
+    const unsubscribe = navigation.addListener('focus', () => {
+      handleGetCurrentTemp();
+    });
+
+    return function cleanup() {
+      unsubscribe();
+    };
+  }, [handleGetCurrentTemp, navigation]);
 
   return (
     <>
@@ -268,14 +272,19 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
             <View style={styles.dropdown}>
               <View style={[styles.inputContainer]}>
                 <TextInput
-                  onChangeText={() => {}}
+                  onChangeText={(value: string) => {
+                    handleChangeFilamentLength(parseInt(value));
+                  }}
                   style={[
                     atomicStyles.textDark,
+                    atomicStyles.bold,
+                    ANDROID && atomicStyles.androidBold,
                     styles.extruderInput,
-                    atomicStyles.text,
                   ]}
                   placeholderTextColor={Colors.Gray}
+                  defaultValue={extruderFilament.length.toString()}
                   placeholder={translate('control.filamentLength')}
+                  keyboardType={'number-pad'}
                 />
                 <Text style={[atomicStyles.textPrimary]}>
                   {translate('control.mm')}
@@ -284,13 +293,18 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
 
               <View style={[atomicStyles.mt8px, styles.inputContainer]}>
                 <TextInput
-                  onChangeText={() => {}}
+                  onChangeText={(value: string) => {
+                    handleChangeExtruderRate(parseInt(value));
+                  }}
                   style={[
                     atomicStyles.textDark,
+                    atomicStyles.bold,
+                    ANDROID && atomicStyles.androidBold,
                     styles.extruderInput,
-                    atomicStyles.text,
                   ]}
+                  keyboardType={'number-pad'}
                   placeholderTextColor={Colors.Gray}
+                  defaultValue={extruderFilament.extruderRate.toString()}
                   placeholder={translate('control.extruderSpeed')}
                 />
                 <Text style={[atomicStyles.textPrimary]}>
@@ -301,14 +315,14 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
             <View style={[styles.extruderSelectionContainer]}>
               <Button
                 title={translate('control.backward')}
-                onPress={() => {}}
+                onPress={() => handleSendCommandExtruderFilament(false)}
                 isOutlined={true}
                 buttonStyle={[styles.extruderButton]}
                 buttonContainerStyle={styles.extruderButtonContainer}
               />
               <Button
                 title={translate('control.forward')}
-                onPress={() => {}}
+                onPress={() => handleSendCommandExtruderFilament(true)}
                 isOutlined={false}
                 buttonStyle={styles.forwardContainer}
                 buttonContainerStyle={styles.extruderButtonContainer}
@@ -334,7 +348,7 @@ const HomeScreen: FC<PropsWithChildren<HomeScreenProps>> = (
         <TemperatureControl
           title={translate('control.fan')}
           maxValue={255}
-          currentValue={0}
+          currentValue={Math.round(fanSpeed * 255)}
           onConfirm={handleSendFanSpeedCommand}
         />
       </ScrollView>

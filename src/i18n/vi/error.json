@@ -1,5 +1,6 @@
 {
   "error.canNotGetTemperature": "Lỗi: Lấy thông tin nhiệt độ",
   "error.error": "Lỗi",
+  "error.extruderNotHot": "Đầu in chưa đủ nhiệt yêu cầu (hơn 160 độ)",
   "error.beginPrintingFailed": "Lỗi: Khởi động in"
 }

@@ -10,7 +10,7 @@ import type {StackScreenProps} from '@react-navigation/stack';
 import {SvgIcon} from 'react3l-native-kit';
 import SupportItem from 'src/components/morecules/SupportItem/SupportItem';
 import {GeneralSettingLanguageScreen} from 'src/screens/Root';
-import {usePrinterRestart} from 'src/services/command/use-printer-restart';
+import {usePrinterRestart} from 'src/services/command-service/use-printer-restart';
 import {useBoolean} from 'react3l-common';
 import Confirmation from 'src/components/organisms/Confirmation';
 

@@ -16,6 +16,7 @@ export function useFanCommandService(): [
     commandRepository.sendCommandText('M107').subscribe({
       next: () => {
         showSuccess(translate('success.success'));
+        setFanSpeed(0);
       },
       error: () => {
         showError(translate('error.error'));

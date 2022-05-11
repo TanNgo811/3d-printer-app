@@ -41,3 +41,5 @@ export const APP_ID: string = ANDROID
 export const APP_CODE: string = IOS
   ? ReactNativeConfig.HERE_MAP_ANDROID_CODE
   : ReactNativeConfig.HERE_MAP_IOS_CODE;
+
+export const MAXIMUM_PLA = 160;

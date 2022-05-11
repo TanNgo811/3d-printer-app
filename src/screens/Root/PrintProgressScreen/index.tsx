@@ -12,8 +12,8 @@ import {ANDROID} from 'src/config/const';
 import RoundButton from 'src/components/atoms/RoundButton';
 import {useProgressServices} from 'src/services/print-service/use-progress-services';
 import TemperatureControl from 'src/screens/Tab/HomeScreen/components/TemperatureControl';
-import {useExtruderCommandService} from 'src/services/command/use-extruder-command-service';
-import {useFanCommandService} from 'src/services/command/use-fan-command-service';
+import {useExtruderCommandService} from 'src/services/command-service/use-extruder-command-service';
+import {useFanCommandService} from 'src/services/command-service/use-fan-command-service';
 
 export function PrintProgressScreen(
   props: PropsWithChildren<PrintOnProcessScreenProps>,

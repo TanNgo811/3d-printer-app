@@ -61,13 +61,14 @@ export function useExtruderCommandService(): [
         .subscribe({
           next: () => {
             showSuccess(translate('success.success'));
+            handleGetCurrentTemp();
           },
           error: () => {
             showError(translate('error.error'));
           },
         });
     },
-    [translate],
+    [handleGetCurrentTemp, translate],
   );
 
   return [

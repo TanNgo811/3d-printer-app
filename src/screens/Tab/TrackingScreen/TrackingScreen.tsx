@@ -117,6 +117,7 @@ const TrackingScreen: FC<PropsWithChildren<ProcessingScreenProps>> = (
               tempArray?.length > 1
                 ? {
                     x: [
+                      //@ts-ignore
                       tempArray[tempArray?.length - 1]?.time - 5000,
                       tempArray[tempArray?.length - 1]?.time,
                     ],

@@ -24,7 +24,7 @@ export function PrinterInformationScreen(
     <>
       <DefaultLayout
         customHeader={false}
-        title={translate('Printer Detail')}
+        title={translate('setting.printerDetail')}
         isLeftIcon={true}
         contentScrollable={true}
         onLeftPress={navigation.goBack}

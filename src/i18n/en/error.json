@@ -1,5 +1,6 @@
 {
   "error.canNotGetTemperature": "Error: Can not get temperature",
   "error.error": "Error",
+  "error.extruderNotHot": "Extruder Temperature Not Enough (more 160 degrees)",
   "error.beginPrintingFailed": "Error: Begin Printing Failed"
 }
