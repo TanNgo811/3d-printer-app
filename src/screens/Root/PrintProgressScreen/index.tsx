@@ -71,15 +71,16 @@ export function PrintProgressScreen(
                   styles.fileName,
                 ]}>
                 {translate('progress.file')}
+                {': '}
                 {fileName}
               </Text>
             </View>
 
-            <View style={[atomicStyles.mt4]}>
-              <Text style={[atomicStyles.text, atomicStyles.textDark]}>
-                {translate('progress.timePrint')}
-              </Text>
-            </View>
+            {/*<View style={[atomicStyles.mt4]}>*/}
+            {/*  <Text style={[atomicStyles.text, atomicStyles.textDark]}>*/}
+            {/*    {translate('progress.timePrint')}*/}
+            {/*  </Text>*/}
+            {/*</View>*/}
           </View>
 
           <View style={styles.buttonsContainer}>

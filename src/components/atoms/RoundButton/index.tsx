@@ -19,7 +19,7 @@ export function RoundButton(
 
   return (
     <>
-      <View>
+      <View style={styles.buttonContainer}>
         <TouchableOpacity
           {...restProps}
           style={[atomicStyles.bgPrimary, styles.roundButton]}>
@@ -31,6 +31,7 @@ export function RoundButton(
             atomicStyles.textCenter,
             atomicStyles.textSecondary,
             atomicStyles.mt2,
+            styles.textButton,
           ]}>
           {title}
         </Text>

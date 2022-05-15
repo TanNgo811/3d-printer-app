@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,26 +13,30 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="lauch_screen" highlightedImage="lauch_screen" translatesAutoresizingMaskIntoConstraints="NO" id="UNi-cq-uAs">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="vtX-pw-aOF">
+                                <rect key="frame" x="130" y="317.66666666666669" width="115" height="177"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="UNi-cq-uAs" secondAttribute="height" multiplier="375:667" id="kh3-E3-ozF"/>
+                                    <constraint firstAttribute="width" secondItem="vtX-pw-aOF" secondAttribute="height" multiplier="115:177" id="olt-hk-KB7"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" red="0.0573162064" green="0.38233843449999999" blue="0.99556857350000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vtX-pw-aOF" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="5vu-Jm-DZs"/>
+                            <constraint firstItem="vtX-pw-aOF" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="gQJ-EG-H8o"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+            <point key="canvasLocation" x="46.376811594202906" y="369.64285714285711"/>
         </scene>
     </scenes>
     <resources>
-        <image name="lauch_screen" width="1500" height="3248"/>
+        <image name="logo" width="115" height="176.33332824707031"/>
     </resources>
 </document>
